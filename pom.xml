@@ -4,7 +4,7 @@
 
   <groupId>wol</groupId>
   <artifactId>dom</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>dom</name>
@@ -18,8 +18,41 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <build>
+  <finalName>wolDom</finalName>
+    <plugins>
+	    <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.1</version>
+			<configuration>
+				<source>1.8</source>
+				<target>1.8</target>
+			</configuration>
+		</plugin>
+		<plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-jar-plugin</artifactId>
+		    <version>2.6</version>
+		        <configuration>
+		          <archive>
+		            <index>true</index>
+		            <manifest>
+		              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+		                <addClasspath>true</addClasspath>
+		            </manifest>
+		            <manifestEntries>
+		              <mode>development</mode>
+		              <url>${project.url}</url>
+		              <key>value</key>
+		            </manifestEntries>
+		          </archive>
+		    </configuration>
+	    </plugin>
+	</plugins>
+  </build>
 </project>
