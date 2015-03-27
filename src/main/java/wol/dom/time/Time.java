@@ -18,7 +18,7 @@ public class Time implements Serializable {
 	protected long time;
 	private iTimeManager<?> timeManager;
 
-    Time(iTimeManager<?> tm,long time){
+    public Time(iTimeManager<?> tm,long time){
     	this.timeManager=tm;
         this.time = time;
     }
