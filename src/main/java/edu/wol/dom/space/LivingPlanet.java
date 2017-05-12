@@ -5,19 +5,18 @@ import javax.persistence.Id;
 
 import edu.wol.dom.WorldContainer;
 import edu.wol.dom.iEvent;
-import edu.wol.dom.shape.iShape;
+import edu.wol.dom.shape.PlanetShape;
+import edu.wol.dom.shape.Shape;
 @Entity
-public class LivingPlanet extends Planet  implements WorldContainer<iPlanetEntity,Position>{
+public class LivingPlanet extends Planet  implements WorldContainer<Planetoid,Position>{
 	private static final long serialVersionUID = 8898280448751239745L;
 	
-	@Id
-	private String id;
 
 	public LivingPlanet(double mass, double radius) {
 		super(mass, radius);
 	}
 
-	public LivingPlanet(double mass, double radius, iShape shape) {
+	public LivingPlanet(double mass, double radius, PlanetShape shape) {
 		super(mass, radius, shape);
 	}
 
@@ -40,7 +39,7 @@ public class LivingPlanet extends Planet  implements WorldContainer<iPlanetEntit
 	}
 
 	@Override
-	public iSpace<iPlanetEntity, Position> getSpace() {
+	public iSpace<Planetoid, Position> getSpace() {
 		// TODO Auto-generated method stub
 		return null;
 	}

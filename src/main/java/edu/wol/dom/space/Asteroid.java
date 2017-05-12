@@ -1,22 +1,29 @@
 package edu.wol.dom.space;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.InheritanceType;
 
 import edu.wol.dom.shape.AsteroidShape;
-import edu.wol.dom.shape.iShape;
+import edu.wol.dom.shape.Shape;
 
 @Entity
-public class Asteroid implements iPlanetoid {
+public class Asteroid extends Planetoid {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	protected String UID;
-    protected double mass;
-    protected double radius;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	protected long ID;
 
 
-    protected iShape shape;
+    //@OneToOne(fetch=FetchType.LAZY, targetEntity=AsteroidShape.class)
+	//@JoinColumn(name="SHAPE_ID")
 
 
     public Asteroid(double mass,double radius){
@@ -24,8 +31,7 @@ public class Asteroid implements iPlanetoid {
         
     }
     
-    protected Asteroid(double mass,double radius,iShape shape){
-    	UID=String.valueOf(System.currentTimeMillis());
+    protected Asteroid(double mass,double radius,AsteroidShape shape){
         this.mass=mass;
         this.radius=radius;
         this.shape=shape;
@@ -33,7 +39,7 @@ public class Asteroid implements iPlanetoid {
     }
 
 
-    public iShape getShape() {
+    public Shape getShape() {
         return shape;
     }
 
@@ -41,17 +47,8 @@ public class Asteroid implements iPlanetoid {
         this.radius = radius;
     }
 
-    public void setShape(iShape shape) {
+    public void setShape(AsteroidShape shape) {
         this.shape = shape;
-    }
-
-    @Override
-    public String getUID() {
-        return UID;  //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    public void setUID(String UID) {
-        this.UID = UID;
     }
 
     public double getRadius() {
@@ -60,12 +57,14 @@ public class Asteroid implements iPlanetoid {
     }
 
 
-    public int compareTo(iPlanetoid o) {
+    public int compareTo(Planetoid o) {
     	if(o==null){
     		return -1;
     	}else{
-    		return this.UID.compareTo(o.getUID());
+    		if( this == o)
+    			return 0;
     	}
+		return -1;
     }
 
     @Override
@@ -81,7 +80,7 @@ public class Asteroid implements iPlanetoid {
 
 	@Override
 	public String toString() {
-		return "Asteroid:{ id:" + UID + ", mass:"
+		return "Asteroid:{ id:" + ID + ", mass:"
 				+ mass + ", radius:" + radius + "}";
 	}
 }

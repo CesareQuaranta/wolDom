@@ -2,7 +2,7 @@ package edu.wol.dom.shape;
 
 import edu.wol.dom.space.Position;
 
-public class SphericalShape implements iShape {
+public class SphericalShape extends Shape {
 
 	private double radius;
 	
@@ -11,7 +11,7 @@ public class SphericalShape implements iShape {
 	}
 
 	@Override
-	public boolean checkInterseption(Position position,iShape otherShape,Position otherPosition) {
+	public boolean checkInterseption(Position position,Shape otherShape,Position otherPosition) {
 		boolean collision=false;
 		if(otherShape instanceof SphericalShape){
 			double minDistance=radius+((SphericalShape)otherShape).radius;

@@ -1,5 +1,8 @@
 package edu.wol.dom.space;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
 import edu.wol.dom.Effect;
 import edu.wol.dom.WolEntity;
 
@@ -10,6 +13,7 @@ import edu.wol.dom.WolEntity;
  * Time: 0.20
  * To change this template use File | Settings | File Templates.
  */
+@Entity
 public class Movement<E extends WolEntity> extends Effect<E> {
 	private static final long serialVersionUID = -3053579265734463310L;
 	private Vector vector;

@@ -1,15 +1,17 @@
 package edu.wol.dom.phisycs;
 
+import javax.persistence.Entity;
+
 import edu.wol.dom.Effect;
 import edu.wol.dom.WolEntity;
-
+@Entity
 public class Collision<E extends WolEntity> extends Effect<E> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6011658638891963136L;
-	private E object;
-	private E subject;
+	private WolEntity object;
+	private WolEntity subject;
 	
 	public Collision(E object, E subject) {
 		super(object);
@@ -18,13 +20,13 @@ public class Collision<E extends WolEntity> extends Effect<E> {
 	}
 	
 	public E getObject() {
-		return object;
+		return (E)object;
 	}
 	public void setObject(E object) {
 		this.object = object;
 	}
 	public E getSubject() {
-		return subject;
+		return (E)subject;
 	}
 	public void setSubject(E subject) {
 		this.subject = subject;

@@ -1,5 +1,15 @@
 package edu.wol.dom;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
+
 /**
  * Created by IntelliJ IDEA.
  * User: cesare
@@ -7,9 +17,15 @@ package edu.wol.dom;
  * Time: 0.10
  * To change this template use File | Settings | File Templates.
  */
+@MappedSuperclass
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Effect<E extends WolEntity> implements iEvent {
 	private static final long serialVersionUID = 5692499734770881520L;
-	private E entity;
+	@Id
+	@GeneratedValue
+	private long ID;
+	
+	private WolEntity entity;
 
 	public Effect(E entity) {
 		super();
@@ -17,7 +33,7 @@ public abstract class Effect<E extends WolEntity> implements iEvent {
 	}
 
 	public E getEntity() {
-		return entity;
+		return (E)entity;
 	}
 	
 }

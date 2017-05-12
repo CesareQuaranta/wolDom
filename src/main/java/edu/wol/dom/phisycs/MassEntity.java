@@ -8,7 +8,12 @@ import edu.wol.dom.WolEntity;
  * Time: 10.00
  * To change this template use File | Settings | File Templates.
  */
-public interface iMassEntity extends WolEntity{
-    public double getMass();
-    public void setMass(double mass);
+public abstract class MassEntity extends WolEntity{
+	protected double mass;
+    public double getMass(){
+    	return mass;
+    }
+    public void setMass(double mass){
+    	this.mass = mass;
+    }
 }

@@ -1,18 +1,19 @@
 package edu.wol.dom.space;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 import edu.wol.dom.Karma;
 import edu.wol.dom.shape.PlanetShape;
-import edu.wol.dom.shape.iShape;
-
-public class Planet implements iPlanetoid {
+import edu.wol.dom.shape.Shape;
+@Entity
+public class Planet extends Planetoid {
 	private static final long serialVersionUID = 1L;
+	
+	@Id
 	protected String UID;
-	protected Karma<Planet> karma;
-    protected double mass;
-    protected double radius;
-
-
-    protected iShape shape;
+	
+	protected Karma karma;
 
 
     public Planet(double mass,double radius){
@@ -20,17 +21,17 @@ public class Planet implements iPlanetoid {
         
     }
     
-    protected Planet(double mass,double radius,iShape shape){
+    protected Planet(double mass,double radius,PlanetShape shape){
     	UID=String.valueOf(System.currentTimeMillis());
         this.mass=mass;
         this.radius=radius;
         this.shape=shape;
-        karma=new Karma<Planet>();
+        karma=new Karma();
         
     }
 
 
-    public iShape getShape() {
+    public Shape getShape() {
         return shape;
     }
 
@@ -38,17 +39,8 @@ public class Planet implements iPlanetoid {
         this.radius = radius;
     }
 
-    public void setShape(iShape shape) {
+    public void setShape(Shape shape) {
         this.shape = shape;
-    }
-
-    @Override
-    public String getUID() {
-        return UID;  //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    public void setUID(String UID) {
-        this.UID = UID;
     }
 
     public double getRadius() {
@@ -56,13 +48,13 @@ public class Planet implements iPlanetoid {
 
     }
 
-
-    public int compareTo(iPlanetoid o) {
+    public int compareTo(Planetoid o) {
     	if(o==null){
     		return -1;
-    	}else{
-    		return this.UID.compareTo(o.getUID());
+    	}else if (this == o){
+    		return 0;
     	}
+    	return -1;
     }
 
     @Override

@@ -9,6 +9,6 @@ import edu.wol.dom.space.Position;
  * Time: 23.53
  * To change this template use File | Settings | File Templates.
  */
-public interface iShape {
-	boolean checkInterseption(Position position,iShape otherShape,Position otherPosition);
+public abstract class Shape {
+	abstract boolean checkInterseption(Position position,Shape otherShape,Position otherPosition);
 }

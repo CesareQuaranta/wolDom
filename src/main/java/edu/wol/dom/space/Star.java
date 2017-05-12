@@ -1,11 +1,29 @@
 package edu.wol.dom.space;
 
-import edu.wol.dom.shape.StarShape;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-public class Star extends Planet {
+import edu.wol.dom.shape.StarShape;
+@Entity
+public class Star extends Planetoid {
+	@Id
+	private String id;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Star(double mass, double radius) {
-        super(mass, radius, new StarShape(radius));
+        this(mass, radius, new StarShape(radius));
     }
+
+	public Star(double mass, double radius, StarShape starShape) {
+		this.mass=mass;
+        this.radius=radius;
+        this.shape=starShape;
+	}
+
+	@Override
+	public int compareTo(Planetoid o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

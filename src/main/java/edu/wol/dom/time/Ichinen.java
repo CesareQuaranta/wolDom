@@ -1,5 +1,10 @@
 package edu.wol.dom.time;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import edu.wol.dom.Effect;
 import edu.wol.dom.WolEntity;
 import edu.wol.dom.iAction;
@@ -15,14 +20,20 @@ import edu.wol.dom.iPower;
  * Time: 17.28
  * To change this template use File | Settings | File Templates.
  */
+@Entity
+@Table(name="WOL_TIMEICHINEN")
 public class Ichinen<E extends WolEntity> {
-	private E entity;
+	@Id
+	@GeneratedValue
+	private long ID;
+	
+	private WolEntity entity;
 	private iPower power;
     private iAction action;
-    private iInternalCause<E> internalCause;
-    private iExternalCause<E> externalCause;
+    private iInternalCause<WolEntity> internalCause;
+    private iExternalCause<WolEntity> externalCause;
     private iLatentEffect latentEffect;
-    private Effect<E> effect;
+    private Effect<WolEntity> effect;
 
 	public Ichinen(E entity) {
 		this.entity=entity;
@@ -45,7 +56,7 @@ public class Ichinen<E extends WolEntity> {
 	}
 
 	public E getEntity() {
-		return entity;
+		return (E) entity;
 	}
 
 	public void setEntity(E entity) {
@@ -69,19 +80,19 @@ public class Ichinen<E extends WolEntity> {
 	}
 
 	public iInternalCause<E> getInternalCause() {
-		return internalCause;
+		return (iInternalCause<E>) internalCause;
 	}
 
 	public void setInternalCause(iInternalCause<E> internalCause) {
-		this.internalCause = internalCause;
+		this.internalCause = (iInternalCause<WolEntity>) internalCause;
 	}
 
 	public iExternalCause<E> getExternalCause() {
-		return externalCause;
+		return (iExternalCause<E>) externalCause;
 	}
 
 	public void setExternalCause(iExternalCause<E> externalCause) {
-		this.externalCause = externalCause;
+		this.externalCause = (iExternalCause<WolEntity>) externalCause;
 	}
 
 	public iLatentEffect getLatentEffect() {
@@ -93,10 +104,10 @@ public class Ichinen<E extends WolEntity> {
 	}
 
 	public Effect<E> getEffect() {
-		return effect;
+		return (Effect<E>) effect;
 	}
 
 	public void setEffect(Effect<E> effect) {
-		this.effect = effect;
+		this.effect = (Effect<WolEntity>) effect;
 	}
 }
