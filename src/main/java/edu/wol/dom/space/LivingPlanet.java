@@ -8,7 +8,7 @@ import edu.wol.dom.iEvent;
 import edu.wol.dom.shape.PlanetShape;
 import edu.wol.dom.shape.Shape;
 @Entity
-public class LivingPlanet extends Planet  implements WorldContainer<Planetoid,Position>{
+public class LivingPlanet extends Planet{
 	private static final long serialVersionUID = 8898280448751239745L;
 	
 
@@ -20,7 +20,7 @@ public class LivingPlanet extends Planet  implements WorldContainer<Planetoid,Po
 		super(mass, radius, shape);
 	}
 
-	@Override
+	/*@Override
 	public void run() {
 		// TODO Auto-generated method stub
 		
@@ -42,6 +42,6 @@ public class LivingPlanet extends Planet  implements WorldContainer<Planetoid,Po
 	public iSpace<Planetoid, Position> getSpace() {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
 }

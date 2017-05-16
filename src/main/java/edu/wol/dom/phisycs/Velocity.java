@@ -1,9 +1,11 @@
 package edu.wol.dom.phisycs;
 
+import javax.persistence.Entity;
+
 import edu.wol.dom.iAction;
 import edu.wol.dom.iLatentEffect;
 import edu.wol.dom.space.Vector;
-
+@Entity
 public class Velocity extends Vector implements iAction{
 	/**
 	 * 

@@ -2,6 +2,7 @@ package edu.wol.dom.space;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import edu.wol.dom.Karma;
 import edu.wol.dom.shape.PlanetShape;
@@ -13,6 +14,7 @@ public class Planet extends Planetoid {
 	@Id
 	protected String UID;
 	
+	@OneToOne
 	protected Karma karma;
 
 

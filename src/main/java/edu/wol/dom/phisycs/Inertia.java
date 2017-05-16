@@ -1,8 +1,11 @@
 package edu.wol.dom.phisycs;
 
-import edu.wol.dom.iPower;
+import javax.persistence.Entity;
 
-public class Inertia implements iPower {
+import edu.wol.dom.Power;
+
+@Entity
+public class Inertia extends Power {
 	private static final long serialVersionUID = 1L;
 
 	public Inertia() {

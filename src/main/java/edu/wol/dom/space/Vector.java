@@ -1,5 +1,11 @@
 package edu.wol.dom.space;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 /**
  * Created by IntelliJ IDEA.
  * User: cesare
@@ -7,11 +13,16 @@ package edu.wol.dom.space;
  * Time: 23.49
  * To change this template use File | Settings | File Templates.
  */
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Vector implements Comparable<Vector>,iCoordinate,Cloneable{
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = -5130651281630047189L;
+	@Id
+	@GeneratedValue
+	private long ID;
 	protected float x;
 	protected float y;
 	protected float z;

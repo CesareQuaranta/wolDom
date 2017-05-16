@@ -3,6 +3,7 @@ package edu.wol.dom;
 import java.util.LinkedList;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -18,10 +19,23 @@ import javax.persistence.InheritanceType;
 @Entity
 public class Karma {
 	@Id
+	@GeneratedValue
 	private long ID;
-	
+
 	private LinkedList<Phenomen<WolEntity>> current=new LinkedList<Phenomen<WolEntity>>();
 	private LinkedList<Phenomen<WolEntity>> past=new LinkedList<Phenomen<WolEntity>>();
+	
+	public Karma() {
+	}
+
+	public LinkedList<Phenomen<WolEntity>> getCurrent() {
+		return current;
+	}
+
+	public void setCurrent(LinkedList<Phenomen<WolEntity>> current) {
+		this.current = current;
+	}
+	
 	/*
     protected Map<iInternalCause<E>,Effect<E>> karmaSingleton=new HashMap<iInternalCause<E>,Effect<E>>();
     protected Map<iInternalCause<E>,Collection<Effect<E>>> karmaCollection=new HashMap<iInternalCause<E>,Collection<Effect<E>>>();

@@ -6,12 +6,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import edu.wol.dom.Effect;
+import edu.wol.dom.Power;
 import edu.wol.dom.WolEntity;
 import edu.wol.dom.iAction;
 import edu.wol.dom.iExternalCause;
 import edu.wol.dom.iInternalCause;
 import edu.wol.dom.iLatentEffect;
-import edu.wol.dom.iPower;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,11 +28,11 @@ public class Ichinen<E extends WolEntity> {
 	private long ID;
 	
 	private WolEntity entity;
-	private iPower power;
-    private iAction action;
-    private iInternalCause<WolEntity> internalCause;
-    private iExternalCause<WolEntity> externalCause;
-    private iLatentEffect latentEffect;
+	private Power power;//TODO
+    private iAction action;//TODO
+    private iInternalCause<WolEntity> internalCause;//TODO
+    private iExternalCause<WolEntity> externalCause;//TODO
+    private iLatentEffect latentEffect;//TODO
     private Effect<WolEntity> effect;
 
 	public Ichinen(E entity) {
@@ -63,11 +63,11 @@ public class Ichinen<E extends WolEntity> {
 		this.entity = entity;
 	}
 
-	public iPower getPower() {
+	public Power getPower() {
 		return power;
 	}
 
-	public void setPower(iPower power) {
+	public void setPower(Power power) {
 		this.power = power;
 	}
 

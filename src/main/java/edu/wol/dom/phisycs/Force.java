@@ -1,9 +1,12 @@
 package edu.wol.dom.phisycs;
 
-import edu.wol.dom.iPower;
+import javax.persistence.Entity;
+
+import edu.wol.dom.Power;
 import edu.wol.dom.space.Vector;
 
-public class Force implements iPower{
+@Entity
+public class Force extends Power{
 	/**
 	 * 
 	 */
@@ -31,7 +34,7 @@ public class Force implements iPower{
 		}else{
 			newAcceleration=new Acceleration(acceleration.sum(force.acceleration,force.mass/mass));
 		}
-		double sumComponent=Math.abs(newAcceleration.getX())+Math.abs(newAcceleration.getY())+Math.abs(newAcceleration.getZ());
+		double sumComponent=newAcceleration.getComponentsSum();//TODO Rinominare
 		double massX=Math.abs(newAcceleration.getX()==0?0:((mass*acceleration.getX())+(force.mass*force.acceleration.getX()))/sumComponent);
 		double massY=Math.abs(newAcceleration.getY()==0?0:((mass*acceleration.getY())+(force.mass*force.acceleration.getY()))/sumComponent);
 		double massZ=Math.abs(newAcceleration.getZ()==0?0:((mass*acceleration.getZ())+(force.mass*force.acceleration.getZ()))/sumComponent);
