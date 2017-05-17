@@ -1,6 +1,5 @@
 package edu.wol.dom;
 
-import edu.wol.dom.time.Ichinen;
 
 
 /**

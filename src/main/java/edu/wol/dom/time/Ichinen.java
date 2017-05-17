@@ -11,7 +11,7 @@ import edu.wol.dom.WolEntity;
 import edu.wol.dom.Action;
 import edu.wol.dom.ExternalCause;
 import edu.wol.dom.InternalCause;
-import edu.wol.dom.iLatentEffect;
+import edu.wol.dom.LatentEffect;
 
 /**
  * Created with IntelliJ IDEA.
@@ -32,7 +32,7 @@ public class Ichinen<E extends WolEntity> {
     private Action action;
     private InternalCause<WolEntity> internalCause;
     private ExternalCause<WolEntity> externalCause;
-    private iLatentEffect latentEffect;//TODO
+    private LatentEffect latentEffect;
     private Effect<WolEntity> effect;
 
 	public Ichinen(E entity) {
@@ -95,11 +95,11 @@ public class Ichinen<E extends WolEntity> {
 		this.externalCause = (ExternalCause<WolEntity>) externalCause;
 	}
 
-	public iLatentEffect getLatentEffect() {
+	public LatentEffect getLatentEffect() {
 		return latentEffect;
 	}
 
-	public void setLatentEffect(iLatentEffect latentEffect) {
+	public void setLatentEffect(LatentEffect latentEffect) {
 		this.latentEffect = latentEffect;
 	}
 
