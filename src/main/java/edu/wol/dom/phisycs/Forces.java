@@ -4,7 +4,6 @@ import java.util.Collection;
 
 import edu.wol.dom.WolEntity;
 import edu.wol.dom.iExternalCause;
-import edu.wol.dom.iInternalCause;
 
 /**
  * Created by IntelliJ IDEA.

@@ -8,9 +8,9 @@ import javax.persistence.Table;
 import edu.wol.dom.Effect;
 import edu.wol.dom.Power;
 import edu.wol.dom.WolEntity;
-import edu.wol.dom.iAction;
+import edu.wol.dom.Action;
 import edu.wol.dom.iExternalCause;
-import edu.wol.dom.iInternalCause;
+import edu.wol.dom.InternalCause;
 import edu.wol.dom.iLatentEffect;
 
 /**
@@ -28,9 +28,9 @@ public class Ichinen<E extends WolEntity> {
 	private long ID;
 	
 	private WolEntity entity;
-	private Power power;//TODO
-    private iAction action;//TODO
-    private iInternalCause<WolEntity> internalCause;//TODO
+	private Power power;
+    private Action action;
+    private InternalCause<WolEntity> internalCause;
     private iExternalCause<WolEntity> externalCause;//TODO
     private iLatentEffect latentEffect;//TODO
     private Effect<WolEntity> effect;
@@ -71,20 +71,20 @@ public class Ichinen<E extends WolEntity> {
 		this.power = power;
 	}
 
-	public iAction getAction() {
+	public Action getAction() {
 		return action;
 	}
 
-	public void setAction(iAction action) {
+	public void setAction(Action action) {
 		this.action = action;
 	}
 
-	public iInternalCause<E> getInternalCause() {
-		return (iInternalCause<E>) internalCause;
+	public InternalCause<E> getInternalCause() {
+		return (InternalCause<E>) internalCause;
 	}
 
-	public void setInternalCause(iInternalCause<E> internalCause) {
-		this.internalCause = (iInternalCause<WolEntity>) internalCause;
+	public void setInternalCause(InternalCause<E> internalCause) {
+		this.internalCause = (InternalCause<WolEntity>) internalCause;
 	}
 
 	public iExternalCause<E> getExternalCause() {
