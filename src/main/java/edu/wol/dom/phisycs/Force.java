@@ -1,6 +1,8 @@
 package edu.wol.dom.phisycs;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 import edu.wol.dom.Power;
 import edu.wol.dom.space.Vector;
@@ -11,6 +13,10 @@ public class Force extends Power{
 	 * 
 	 */
 	private static final long serialVersionUID = -2732542351134968687L;
+	@Id
+	@GeneratedValue
+	private long ID;
+	
 	protected Double mass;
 	protected Acceleration acceleration;
 	

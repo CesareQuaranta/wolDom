@@ -1,5 +1,9 @@
 package edu.wol.dom.space;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Created by IntelliJ IDEA.
  * User: cesare
@@ -7,11 +11,16 @@ package edu.wol.dom.space;
  * Time: 23.49
  * To change this template use File | Settings | File Templates.
  */
+@Entity
 public class Position implements Comparable<Position>,iCoordinate {
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = -5130651281630047189L;
+	@Id
+	@GeneratedValue
+	private long ID;
+	
 	protected long x;
 	private double fx=0d; 
 	protected long y;
