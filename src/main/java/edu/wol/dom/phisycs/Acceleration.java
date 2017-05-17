@@ -6,60 +6,42 @@ import edu.wol.dom.Power;
 import edu.wol.dom.space.Vector;
 
 @Entity
-public class Acceleration extends Power  {
+public class Acceleration extends Velocity  {
 	private static final long serialVersionUID = -8543988811101335479L;
-	private Velocity velocity;
 	public Acceleration() {
-		this.velocity=new Velocity(0);
+		super(0);
 	}
 	
 	public Acceleration(float x, float y, float z) {
-		this.velocity=new Velocity(1,x,y,z);
+		super(1,x,y,z);
 	}
 
 	public Acceleration(Vector vector) {
 		this(1, vector);
 	}
 	public Acceleration(float time, Vector vector) {
-		this.velocity=new Velocity(time, vector);
-	}
-	
-	
-	public Acceleration clone(){
-		return new Acceleration(this.velocity.time,this.velocity);
-	}
-
-	public boolean isEmpty() {
-		return this.velocity.isEmpty();
-	}
-
-	public Double getLenght() {
-		return (double) this.velocity.getLenght();
-	}
-
-	public Vector sum(Acceleration acceleration) {
-		return this.velocity.sum(acceleration.velocity);
-	}
-
-	public Vector sum(Acceleration acceleration, double d) {
-		return this.velocity.sum(acceleration.velocity,d);
+		super(time, vector);
 	}
 	
 	public double getComponentsSum(){
-		return Math.abs(this.velocity.getX())+Math.abs(this.velocity.getY())+Math.abs(this.velocity.getZ());
+		return Math.abs(this.vector.getX())+Math.abs(this.vector.getY())+Math.abs(this.vector.getZ());
+	}
+	public Acceleration sum(Acceleration addend){
+		if(this.vector.isEmpty() && addend!=null){
+			return addend.clone();
+		}else if (!addend.vector.isEmpty()){
+			Acceleration result=(Acceleration) getMaximized4Time();;
+			Acceleration resultAddend=(Acceleration) addend.getMaximized4Time();
+			result.time*=resultAddend.time;
+			return result.sum(resultAddend);
+		}else 
+			return new Acceleration();
+	}
+	public Acceleration clone(){
+		return new Acceleration(time,this.vector);
 	}
 
-	public float getX() {
-		return this.velocity.getX();
+	public Acceleration sum(Acceleration acceleration, double d) {
+		return new Acceleration(this.time,this.vector.sum(acceleration.vector,d));
 	}
-	
-	public float getY() {
-		return this.velocity.getY();
-	}
-	
-	public float getZ() {
-		return this.velocity.getZ();
-	}
-	
-
 }

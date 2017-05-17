@@ -30,14 +30,16 @@ public class Force extends Power{
 	public void sum(Force force){//TODO da veriicare con casistiche note
 		Acceleration newAcceleration=null;
 		if(this.isEmpty() || force.isEmpty()){
-			newAcceleration=new Acceleration(acceleration.sum(force.acceleration));
+			newAcceleration=acceleration.sum(force.acceleration);
 		}else{
-			newAcceleration=new Acceleration(acceleration.sum(force.acceleration,force.mass/mass));
+			newAcceleration=acceleration.sum(force.acceleration,force.mass/mass);
 		}
 		double sumComponent=newAcceleration.getComponentsSum();//TODO Rinominare
-		double massX=Math.abs(newAcceleration.getX()==0?0:((mass*acceleration.getX())+(force.mass*force.acceleration.getX()))/sumComponent);
-		double massY=Math.abs(newAcceleration.getY()==0?0:((mass*acceleration.getY())+(force.mass*force.acceleration.getY()))/sumComponent);
-		double massZ=Math.abs(newAcceleration.getZ()==0?0:((mass*acceleration.getZ())+(force.mass*force.acceleration.getZ()))/sumComponent);
+		
+		//TODO Da spostare in acceleration
+		double massX=Math.abs(newAcceleration.getVector().getX()==0?0:((mass*acceleration.getVector().getX())+(force.mass*force.acceleration.getVector().getX()))/sumComponent);
+		double massY=Math.abs(newAcceleration.getVector().getY()==0?0:((mass*acceleration.getVector().getY())+(force.mass*force.acceleration.getVector().getY()))/sumComponent);
+		double massZ=Math.abs(newAcceleration.getVector().getZ()==0?0:((mass*acceleration.getVector().getZ())+(force.mass*force.acceleration.getVector().getZ()))/sumComponent);
 		mass=massX+massY+massZ;
 		acceleration=newAcceleration;
 	}
@@ -69,7 +71,7 @@ public class Force extends Power{
 
 	@Override
 	public String toString() {
-		return "F "+mass*acceleration.getLenght()+"N";
+		return "F "+mass*acceleration.getVector().getLenght()+"N";
 	}
 
 }
