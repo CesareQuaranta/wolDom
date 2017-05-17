@@ -1,9 +1,17 @@
 package edu.wol.dom.space;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import edu.wol.dom.phisycs.MassEntity;
 import edu.wol.dom.shape.Shape;
-
-public abstract class Planetoid extends MassEntity implements Comparable<Planetoid>{
+@Entity
+public class Planetoid extends MassEntity implements Comparable<Planetoid>{
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	protected long ID;
     protected double radius;
     protected Shape shape;
 	public double getRadius(){
@@ -12,4 +20,9 @@ public abstract class Planetoid extends MassEntity implements Comparable<Planeto
     public Shape getShape(){
     	return shape;
     }
+	@Override
+	public int compareTo(Planetoid o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

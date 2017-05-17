@@ -16,10 +16,6 @@ import edu.wol.dom.shape.Shape;
 @Entity
 public class Asteroid extends Planetoid {
 	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	protected long ID;
 
 
     //@OneToOne(fetch=FetchType.LAZY, targetEntity=AsteroidShape.class)

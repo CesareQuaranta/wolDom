@@ -1,5 +1,9 @@
 package edu.wol.dom.phisycs;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import edu.wol.dom.WolEntity;
 /**
  * Created with IntelliJ IDEA.

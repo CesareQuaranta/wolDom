@@ -11,9 +11,6 @@ import edu.wol.dom.shape.Shape;
 public class Planet extends Planetoid {
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	protected String UID;
-	
 	@OneToOne
 	protected Karma karma;
 
@@ -24,7 +21,6 @@ public class Planet extends Planetoid {
     }
     
     protected Planet(double mass,double radius,PlanetShape shape){
-    	UID=String.valueOf(System.currentTimeMillis());
         this.mass=mass;
         this.radius=radius;
         this.shape=shape;
@@ -78,7 +74,7 @@ public class Planet extends Planetoid {
 
 	@Override
 	public String toString() {
-		return "Planet [" + UID + ", mass="
+		return "Planet [" + ID + ", mass="
 				+ mass + ", radius=" + radius + "]";
 	}
 }

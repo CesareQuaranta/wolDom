@@ -6,9 +6,6 @@ import javax.persistence.Id;
 import edu.wol.dom.shape.StarShape;
 @Entity
 public class Star extends Planetoid {
-	@Id
-	private String id;
-	
 	private static final long serialVersionUID = 1L;
 
 	public Star(double mass, double radius) {
