@@ -78,7 +78,7 @@ public class Velocity extends Action{
 			Velocity result=getMaximized4Time();;
 			Velocity resultAddend=addend.getMaximized4Time();
 			result.time*=resultAddend.time;
-			return result.sum(resultAddend);
+			return new Velocity(result.time,result.vector.sum(addend.vector));
 		}else 
 			return new Velocity();
 	}
