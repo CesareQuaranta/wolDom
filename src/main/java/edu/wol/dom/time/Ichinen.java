@@ -9,7 +9,7 @@ import edu.wol.dom.Effect;
 import edu.wol.dom.Power;
 import edu.wol.dom.WolEntity;
 import edu.wol.dom.Action;
-import edu.wol.dom.iExternalCause;
+import edu.wol.dom.ExternalCause;
 import edu.wol.dom.InternalCause;
 import edu.wol.dom.iLatentEffect;
 
@@ -31,7 +31,7 @@ public class Ichinen<E extends WolEntity> {
 	private Power power;
     private Action action;
     private InternalCause<WolEntity> internalCause;
-    private iExternalCause<WolEntity> externalCause;//TODO
+    private ExternalCause<WolEntity> externalCause;
     private iLatentEffect latentEffect;//TODO
     private Effect<WolEntity> effect;
 
@@ -87,12 +87,12 @@ public class Ichinen<E extends WolEntity> {
 		this.internalCause = (InternalCause<WolEntity>) internalCause;
 	}
 
-	public iExternalCause<E> getExternalCause() {
-		return (iExternalCause<E>) externalCause;
+	public ExternalCause<E> getExternalCause() {
+		return (ExternalCause<E>) externalCause;
 	}
 
-	public void setExternalCause(iExternalCause<E> externalCause) {
-		this.externalCause = (iExternalCause<WolEntity>) externalCause;
+	public void setExternalCause(ExternalCause<E> externalCause) {
+		this.externalCause = (ExternalCause<WolEntity>) externalCause;
 	}
 
 	public iLatentEffect getLatentEffect() {

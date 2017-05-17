@@ -2,9 +2,6 @@ package edu.wol.dom.time;
 
 import java.io.Serializable;
 
-import edu.wol.dom.WolEntity;
-import edu.wol.dom.iExternalCause;
-
 /**
  * Created with IntelliJ IDEA.
  * User: cesare
