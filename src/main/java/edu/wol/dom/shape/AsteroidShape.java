@@ -7,8 +7,6 @@ import edu.wol.dom.space.Position;
 
 @Entity
 public class AsteroidShape extends Shape {
-	@Id
-	protected long ID;
 	
 	protected String vertex;
 	

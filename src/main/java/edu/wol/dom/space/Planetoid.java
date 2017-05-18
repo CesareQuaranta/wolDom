@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import edu.wol.dom.phisycs.MassEntity;
 import edu.wol.dom.shape.Shape;
@@ -13,7 +14,9 @@ public class Planetoid extends MassEntity implements Comparable<Planetoid>{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	protected long ID;
     protected double radius;
+    @Transient//FIXME
     protected Shape shape;
+    
 	public double getRadius(){
 		return radius;
 	}

@@ -1,7 +1,9 @@
 package edu.wol.dom.shape;
 
-import edu.wol.dom.space.Position;
+import javax.persistence.Entity;
 
+import edu.wol.dom.space.Position;
+@Entity
 public class SphericalShape extends Shape {
 
 	private double radius;
