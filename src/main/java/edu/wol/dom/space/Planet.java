@@ -1,5 +1,6 @@
 package edu.wol.dom.space;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -11,7 +12,7 @@ import edu.wol.dom.shape.Shape;
 public class Planet extends Planetoid {
 	private static final long serialVersionUID = 1L;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	protected Karma karma;
 
 	public Planet(){

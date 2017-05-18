@@ -2,11 +2,12 @@ package edu.wol.dom;
 
 import java.util.LinkedList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 
 /**
@@ -21,8 +22,11 @@ public class Karma {
 	@Id
 	@GeneratedValue
 	private long ID;
-
+	//@OneToMany(cascade=CascadeType.ALL)
+	@Transient//TODO
 	private LinkedList<Phenomen<WolEntity>> current=new LinkedList<Phenomen<WolEntity>>();
+	//@OneToMany(cascade=CascadeType.ALL)
+	@Transient//TODO
 	private LinkedList<Phenomen<WolEntity>> past=new LinkedList<Phenomen<WolEntity>>();
 	
 	public Karma() {

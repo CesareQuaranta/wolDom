@@ -1,5 +1,6 @@
 package edu.wol.dom.phisycs;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +13,8 @@ import edu.wol.dom.WolEntity;
  * Time: 10.00
  * To change this template use File | Settings | File Templates.
  */
-public abstract class MassEntity extends WolEntity{
+@Entity
+public class MassEntity extends WolEntity{
 	protected double mass;
     public double getMass(){
     	return mass;

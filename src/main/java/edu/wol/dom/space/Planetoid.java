@@ -10,9 +10,6 @@ import edu.wol.dom.phisycs.MassEntity;
 import edu.wol.dom.shape.Shape;
 @Entity
 public class Planetoid extends MassEntity implements Comparable<Planetoid>{
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	protected long ID;
     protected double radius;
     @Transient//FIXME
     protected Shape shape;

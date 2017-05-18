@@ -1,5 +1,6 @@
 package edu.wol.dom;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.DiscriminatorType;
+import javax.persistence.ManyToMany;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -24,16 +27,16 @@ public abstract class Effect<E extends WolEntity> implements iEvent {
 	@Id
 	@GeneratedValue
 	private long ID;
-	
-	private WolEntity entity;
+	@OneToOne(cascade=CascadeType.ALL)
+	private WolEntity e;
 
 	public Effect(E entity) {
 		super();
-		this.entity = entity;
+		this.e = entity;
 	}
 
 	public E getEntity() {
-		return (E)entity;
+		return (E)e;
 	}
 	
 }
