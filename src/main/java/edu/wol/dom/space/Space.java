@@ -36,5 +36,6 @@ public abstract class Space<E extends WolEntity,C extends iCoordinate> implement
     public abstract void addObserver(iEventObserver<E> observer);
     public abstract boolean insertEntity(C coordinate,E entity);
     public abstract void insertForceFactory(ForceFactory f);
+    public abstract boolean isEmpty();
     //public Collection<Force> getAllForces(E entity);
 }

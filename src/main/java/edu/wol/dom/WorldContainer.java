@@ -22,4 +22,5 @@ public abstract class WorldContainer<E extends WolEntity,C extends iCoordinate> 
 	public abstract void init(float spacePrecision, float timePrecision);
 	public abstract void processEvent(iEvent event);
 	public abstract Space<E,C> getSpace();
+	public abstract boolean isEmpty();
 }

@@ -171,4 +171,10 @@ while ( ++sx < ex ) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 }
