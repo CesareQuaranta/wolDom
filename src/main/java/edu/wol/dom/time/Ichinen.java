@@ -35,6 +35,10 @@ public class Ichinen<E extends WolEntity> {
     private LatentEffect latentEffect;
     private Effect<WolEntity> effect;
 
+    public Ichinen() {
+		this.entity=null;
+	}
+    
 	public Ichinen(E entity) {
 		this.entity=entity;
 	}

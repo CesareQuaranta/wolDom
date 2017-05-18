@@ -12,7 +12,11 @@ public class Collision<E extends WolEntity> extends Effect<E> {
 	private static final long serialVersionUID = -6011658638891963136L;
 	private WolEntity object;
 	private WolEntity subject;
-	
+	public Collision() {
+		super(null);
+		this.object = null;
+		this.subject = null;
+	}
 	public Collision(E object, E subject) {
 		super(object);
 		this.object = object;

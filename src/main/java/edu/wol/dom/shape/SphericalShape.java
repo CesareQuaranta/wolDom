@@ -8,6 +8,9 @@ public class SphericalShape extends Shape {
 
 	private double radius;
 	
+	public SphericalShape() {
+		this.radius=0;
+	}
 	public SphericalShape(double radius) {
 		this.radius=radius;
 	}

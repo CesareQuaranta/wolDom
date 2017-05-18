@@ -11,6 +11,9 @@ import edu.wol.dom.shape.Shape;
 public class LivingPlanet extends Planet{
 	private static final long serialVersionUID = 8898280448751239745L;
 	
+	public LivingPlanet() {
+		super();
+	}
 
 	public LivingPlanet(double mass, double radius) {
 		super(mass, radius);

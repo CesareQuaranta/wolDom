@@ -10,6 +10,10 @@ public class AsteroidShape extends Shape {
 	
 	protected String vertex;
 	
+	public AsteroidShape(){
+		vertex="";
+	}
+	
 	@Override
 	public boolean checkInterseption(Position position, Shape otherShape,
 			Position otherPosition) {
