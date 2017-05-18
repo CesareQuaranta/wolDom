@@ -14,7 +14,13 @@ public class Planet extends Planetoid {
 	@OneToOne
 	protected Karma karma;
 
-
+	public Planet(){
+		this.mass=0;
+        this.radius=0;
+        this.shape=null;
+        karma=null;
+	}
+	
     public Planet(double mass,double radius){
         this(mass,radius,new PlanetShape(radius));
         

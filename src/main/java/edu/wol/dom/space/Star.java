@@ -8,6 +8,11 @@ import edu.wol.dom.shape.StarShape;
 public class Star extends Planetoid {
 	private static final long serialVersionUID = 1L;
 
+	public Star() {
+		this.mass=0;
+        this.radius=0;
+        this.shape=null;
+	}
 	public Star(double mass, double radius) {
         this(mass, radius, new StarShape(radius));
     }

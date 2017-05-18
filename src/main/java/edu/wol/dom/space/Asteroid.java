@@ -21,7 +21,12 @@ public class Asteroid extends Planetoid {
     //@OneToOne(fetch=FetchType.LAZY, targetEntity=AsteroidShape.class)
 	//@JoinColumn(name="SHAPE_ID")
 
-
+	protected Asteroid(){
+        this.mass=0;
+        this.radius=0;
+        this.shape=null;
+        
+    }
     public Asteroid(double mass,double radius){
         this(mass,radius,new AsteroidShape());
         
