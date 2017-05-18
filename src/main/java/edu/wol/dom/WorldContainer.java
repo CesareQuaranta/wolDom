@@ -7,7 +7,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 
 import edu.wol.dom.space.iCoordinate;
-import edu.wol.dom.space.iSpace;
+import edu.wol.dom.space.Space;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,5 +21,5 @@ import edu.wol.dom.space.iSpace;
 public abstract class WorldContainer<E extends WolEntity,C extends iCoordinate> implements iEventObserver<E>,Runnable, Serializable {
 	public abstract void init(float spacePrecision, float timePrecision);
 	public abstract void processEvent(iEvent event);
-	public abstract iSpace<E,C> getSpace();
+	public abstract Space<E,C> getSpace();
 }

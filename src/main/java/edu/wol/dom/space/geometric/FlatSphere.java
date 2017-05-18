@@ -10,7 +10,7 @@ import edu.wol.dom.phisycs.Force;
 import edu.wol.dom.phisycs.ForceFactory;
 import edu.wol.dom.space.Movement;
 import edu.wol.dom.space.Vector;
-import edu.wol.dom.space.iSpace;
+import edu.wol.dom.space.Space;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,7 +21,7 @@ import edu.wol.dom.space.iSpace;
  * Only an Object at time can have e slot.
  * Moving out the limit cause return to the specular opposit place.
  */
-public class FlatSphere implements iSpace<WolEntity,Vector>{
+public class FlatSphere extends Space<WolEntity,Vector>{
    /* protected List<List<C>> matrix;
     protected Integer radius;
     protected Integer maxY;
