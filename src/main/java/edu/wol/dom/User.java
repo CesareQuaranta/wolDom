@@ -1,7 +1,9 @@
 package edu.wol.dom;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -9,6 +11,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class User {
 @Id
+@Column(name = "USERNAME",unique=true,columnDefinition="VARCHAR(64)")
 private String username;
 
 @OneToOne(cascade=CascadeType.ALL)
