@@ -30,7 +30,7 @@ private int fov;//Field of View (0-360)
 private float nearRatio;//Near vision percentage
 private float farRatio;//Far vision percentage
 
-@OneToOne(cascade=CascadeType.REFRESH)
+@OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name = "wolId", referencedColumnName = "ID")
 private WorldContainer<WolEntity,Position> wol; //Wol relative Prospective
 
