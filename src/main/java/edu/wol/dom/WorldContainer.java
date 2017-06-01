@@ -1,13 +1,10 @@
 package edu.wol.dom;
 
-import java.io.Serializable;
+import javax.persistence.Entity;
 
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.MappedSuperclass;
-
-import edu.wol.dom.space.iCoordinate;
+import edu.wol.dom.phisycs.MassEntity;
 import edu.wol.dom.space.Space;
+import edu.wol.dom.space.iCoordinate;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,9 +13,8 @@ import edu.wol.dom.space.Space;
  * Time: 23.50.16
  * To change this template use File | Settings | File Templates.
  */
-@MappedSuperclass
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class WorldContainer<E extends WolEntity,C extends iCoordinate> implements iEventObserver<E>,Runnable, Serializable {
+@Entity
+public abstract class WorldContainer<E extends WolEntity,C extends iCoordinate> extends MassEntity implements iEventObserver<E>,Runnable  {
 	public abstract void init(float spacePrecision, float timePrecision);
 	public abstract void processEvent(iEvent event);
 	public abstract Space<E,C> getSpace();
