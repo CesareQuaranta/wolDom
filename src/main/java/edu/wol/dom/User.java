@@ -11,11 +11,9 @@ import javax.persistence.OneToOne;
 @Entity
 public class User {
 @Id
-private long ID;
-//@Column(name = "USERNAME",unique=true,columnDefinition="VARCHAR(64)")
-//private String username;
-
+@Column(name = "USERNAME",unique=true,columnDefinition="VARCHAR(64)")
 private String username;
+
 @OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name = "prospectiveId", referencedColumnName = "ID")
 private Prospective prospective;
