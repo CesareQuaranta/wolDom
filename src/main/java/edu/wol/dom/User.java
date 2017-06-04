@@ -7,8 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "wol_users")//Table name USER System reserved
 public class User {
 @Id
 @Column(name = "USERNAME",unique=true,columnDefinition="VARCHAR(64)")
