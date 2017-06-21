@@ -17,7 +17,7 @@ public class JPATest {
    
     @Test
 	public void testUser() throws Exception{
-    	User newUser= new User("TestUser",new Prospective());
+    	User newUser= new User("TestUser",new Prospective(null));
     	em.persist(newUser);
     	User user=em.find(User.class, "TestUser");
     	Assert.assertNotNull("Fild User Failed", user);

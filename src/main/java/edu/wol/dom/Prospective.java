@@ -23,25 +23,25 @@ private long ID;
 private Position position;
 
 @OneToOne(cascade=CascadeType.ALL)
-@JoinColumn(name = "hrzId", referencedColumnName = "ID")
-private Position horizon;
+@JoinColumn(name = "focus", referencedColumnName = "ID")
+private Position focus;
 
 private int fov;//Field of View (0-360)
-private float nearRatio;//Near vision percentage
-private float farRatio;//Far vision percentage
+private float near;//Near vision 
+private float far;//Far vision
 
 @OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name = "wolId", referencedColumnName = "ID")
 private WorldContainer<WolEntity,Position> wol; //Wol relative Prospective
 
 
-public Prospective(){
-	position=null;
-	horizon=position;
-	//wol=null;
+public Prospective(WorldContainer<WolEntity,Position> wol){
+	position=new Position(0,0,5);
+	focus=new Position(0,0,0);
+	this.wol=wol;
 	fov=50;//Default
-	nearRatio=1/100;
-	farRatio=1;
+	near=1;
+	far=1000;
 }
 
 public Position getPosition() {
@@ -50,11 +50,11 @@ public Position getPosition() {
 public void setPosition(Position position) {
 	this.position = position;
 }
-public Position getHorizon() {
-	return horizon;
+public Position getFocus() {
+	return focus;
 }
-public void setHorizon(Position horizon) {
-	this.horizon = horizon;
+public void setFocus(Position focus) {
+	this.focus = focus;
 }
 public int getFov() {
 	return fov;
@@ -62,17 +62,17 @@ public int getFov() {
 public void setFov(int fov) {
 	this.fov = fov;
 }
-public float getNearRatio() {
-	return nearRatio;
+public float getNear() {
+	return near;
 }
-public void setNearRatio(float nearRatio) {
-	this.nearRatio = nearRatio;
+public void setNear(float near) {
+	this.near = near;
 }
-public float getFarRatio() {
-	return farRatio;
+public float getFar() {
+	return far;
 }
-public void setFarRatio(float farRatio) {
-	this.farRatio = farRatio;
+public void setFar(float far) {
+	this.far = far;
 }
 
 public WorldContainer<WolEntity,Position> getWol() {
