@@ -34,6 +34,8 @@ private float far;//Far vision
 @JoinColumn(name = "wolId", referencedColumnName = "ID")
 private WorldContainer<WolEntity,Position> wol; //Wol relative Prospective
 
+public Prospective(){//4 Hibernate
+}
 
 public Prospective(WorldContainer<WolEntity,Position> wol){
 	position=new Position(0,0,5);
