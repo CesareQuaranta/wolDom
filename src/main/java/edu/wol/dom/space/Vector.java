@@ -13,16 +13,16 @@ import javax.persistence.InheritanceType;
  * Time: 23.49
  * To change this template use File | Settings | File Templates.
  */
-//@Entity
+@Entity
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Vector implements Comparable<Vector>,iCoordinate,Cloneable{
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = -5130651281630047189L;
-	/*@Id
+	@Id
 	@GeneratedValue
-	private long ID;*/
+	private long ID;
 	protected float x;
 	protected float y;
 	protected float z;

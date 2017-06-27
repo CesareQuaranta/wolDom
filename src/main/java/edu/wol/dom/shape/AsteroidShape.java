@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import edu.wol.dom.space.Position;
 import edu.wol.dom.space.Vector;
@@ -11,8 +12,11 @@ import edu.wol.dom.space.Vector;
 @Entity
 public class AsteroidShape extends Shape {
 	
+	@OneToMany
 	protected List<Vector> vertices;
+	@OneToMany
 	protected List<Triangle> faces;
+	
 	protected String materiaID;
 	
 	public AsteroidShape(){
