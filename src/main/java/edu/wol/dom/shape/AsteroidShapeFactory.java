@@ -15,10 +15,18 @@ public class AsteroidShapeFactory {
 	}
 	public AsteroidShape generateShape(){
 		AsteroidShape s = new AsteroidShape();
-		List<Vector> vertices=generateEquilateralBase(3);
-		s.addVertice(new Vector(0,1,0));//Center
+		s.setMateriaID("H2SOLID01");
+		int numFace=3;
+		List<Vector> vertices=generateEquilateralBase(numFace);
+		Vector center=new Vector(0,1,0);
+		s.addVertice(center);//Center
 		s.addVertices(vertices);//Base
-		//TODO add Faces
+		for(int i=1;i<numFace;i++){
+			s.addFace(new Triangle(vertices.get(i),center,vertices.get(i+1)));
+		}
+		s.addFace(new Triangle(vertices.get(numFace),center,vertices.get(1)));//Last face
+		//TODO Projections of numFace
+		//TODO Normals
 		return s;
 		
 	}
