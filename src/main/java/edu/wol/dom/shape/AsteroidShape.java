@@ -21,6 +21,7 @@ public class AsteroidShape extends Shape {
 	
 	public AsteroidShape(){
 		vertices=new ArrayList<Vector>();
+		faces=new ArrayList<Triangle>();
 	}
 	
 	public void addVertice(Vector v){
