@@ -3,6 +3,7 @@ package edu.wol.dom.space;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class Asteroid extends Planetoid {
 
     //@OneToOne(fetch=FetchType.LAZY, targetEntity=AsteroidShape.class)
 	//@JoinColumn(name="SHAPE_ID")
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private AsteroidShape persistenceShape;
 	
 	protected Asteroid(){

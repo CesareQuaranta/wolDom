@@ -3,6 +3,7 @@ package edu.wol.dom.shape;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -12,9 +13,9 @@ import edu.wol.dom.space.Vector;
 @Entity
 public class AsteroidShape extends Shape {
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	protected List<Vector> vertices;
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	protected List<Triangle> faces;
 	
 	public AsteroidShape(){
