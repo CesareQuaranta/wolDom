@@ -17,10 +17,11 @@ public class AsteroidShapeFactory {
 		AsteroidShape s = new AsteroidShape();
 		s.setMateriaID("H2SOLID01");
 		int numFace=3;
-		List<Vector> vertices=generateEquilateralBase(numFace);
+		List<Vector> basePoints=generateEquilateralBase(numFace);
 		Vector center=new Vector(0,1,0);
 		s.addVertice(center);//Center
-		s.addVertices(vertices);//Base
+		s.addVertices(basePoints);//Base
+		List<Vector> vertices=s.getVertices();
 		for(int i=1;i<numFace;i++){
 			s.addFace(new Triangle(vertices.get(i),center,vertices.get(i+1)));
 		}
