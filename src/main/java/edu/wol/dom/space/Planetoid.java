@@ -1,11 +1,14 @@
 package edu.wol.dom.space;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 import edu.wol.dom.phisycs.MassEntity;
@@ -17,9 +20,11 @@ public class Planetoid extends MassEntity implements Comparable<Planetoid>{
 	 */
 	private static final long serialVersionUID = -3824869428455182143L;
 	protected double radius;
-    @Transient//FIXME
+	
+	@Transient
     protected Shape shape;
-    protected Collection<String> materia;
+    @Basic
+    protected ArrayList<String> materia;
     
 	public double getRadius(){
 		return radius;
@@ -36,7 +41,7 @@ public class Planetoid extends MassEntity implements Comparable<Planetoid>{
 		return materia;
 	}
 	public void setMateria(Collection<String> materia) {
-		this.materia = materia;
+		this.materia = new ArrayList<String>(materia);
 	}
 	public void addMateria(String materia) {
 		this.materia.add(materia);

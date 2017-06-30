@@ -1,5 +1,8 @@
 package edu.wol.dom.space;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,28 +23,25 @@ public class Asteroid extends Planetoid {
 
     //@OneToOne(fetch=FetchType.LAZY, targetEntity=AsteroidShape.class)
 	//@JoinColumn(name="SHAPE_ID")
-
+	@OneToOne
+	private AsteroidShape persistenceShape;
+	
 	protected Asteroid(){
         this.mass=0;
         this.radius=0;
-        this.shape=null;
+        this.setShape(null);
         
     }
-    public Asteroid(double mass,double radius){
-        this(mass,radius,new AsteroidShape());
+    public Asteroid(Collection<String> materia,double mass,double radius){
+        this(materia,mass,radius,new AsteroidShape());
         
     }
     
-    protected Asteroid(double mass,double radius,AsteroidShape shape){
+    protected Asteroid(Collection<String> materia,double mass,double radius,AsteroidShape shape){
+    	this.materia=new ArrayList<String>(materia);
         this.mass=mass;
         this.radius=radius;
-        this.shape=shape;
-        
-    }
-
-
-    public Shape getShape() {
-        return shape;
+        this.setShape(shape);
     }
 
     public void setRadius(float radius) {
@@ -50,6 +50,7 @@ public class Asteroid extends Planetoid {
 
     public void setShape(AsteroidShape shape) {
         this.shape = shape;
+        this.persistenceShape=shape;
     }
 
     public double getRadius() {
