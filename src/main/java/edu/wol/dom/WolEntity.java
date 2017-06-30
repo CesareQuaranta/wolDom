@@ -31,7 +31,10 @@ public abstract class WolEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	protected long ID;
-    //String getUID();
+	
+    public long getID(){
+    	return ID;
+    }
 
     //void setUID(String UID);
 
