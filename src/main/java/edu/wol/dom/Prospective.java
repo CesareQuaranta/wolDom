@@ -30,8 +30,6 @@ private int fov;//Field of View (0-360)
 private float near;//Near vision 
 private float far;//Far vision
 
-@OneToOne(cascade=CascadeType.ALL)
-@JoinColumn(name = "wolId", referencedColumnName = "ID")
 private String wolID; //Wol relative Prospective
 
 public Prospective(){//4 Hibernate
