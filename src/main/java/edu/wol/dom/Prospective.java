@@ -32,12 +32,12 @@ private float far;//Far vision
 
 @OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name = "wolId", referencedColumnName = "ID")
-private WorldContainer<WolEntity,Position> wol; //Wol relative Prospective
+private WorldContainer<? extends WolEntity,Position> wol; //Wol relative Prospective
 
 public Prospective(){//4 Hibernate
 }
 
-public Prospective(WorldContainer<WolEntity,Position> wol){
+public Prospective(WorldContainer<? extends WolEntity,Position> wol){
 	position=new Position(0,0,5);
 	focus=new Position(0,0,0);
 	this.wol=wol;
@@ -77,10 +77,10 @@ public void setFar(float far) {
 	this.far = far;
 }
 
-public WorldContainer<WolEntity,Position> getWol() {
+public WorldContainer<? extends WolEntity,Position> getWol() {
 	return wol;
 }
-public void setWol(WorldContainer<WolEntity,Position> wol) {
+public void setWol(WorldContainer<? extends WolEntity,Position> wol) {
 	this.wol = wol;
 }
 }
