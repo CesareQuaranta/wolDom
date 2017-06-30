@@ -15,7 +15,6 @@ public class AsteroidShapeFactory {
 	}
 	public AsteroidShape generateShape(){
 		AsteroidShape s = new AsteroidShape();
-		s.setMateriaID("H2SOLID01");
 		int numFace=3;
 		List<Vector> basePoints=generateEquilateralBase(numFace);
 		Vector center=new Vector(0,1,0);

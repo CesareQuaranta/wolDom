@@ -17,8 +17,6 @@ public class AsteroidShape extends Shape {
 	@OneToMany
 	protected List<Triangle> faces;
 	
-	protected String materiaID;
-	
 	public AsteroidShape(){
 		vertices=new ArrayList<Vector>();
 		faces=new ArrayList<Triangle>();
@@ -44,14 +42,6 @@ public class AsteroidShape extends Shape {
 	
 	public List<Triangle> getFaces() {
 		return faces;
-	}
-
-	public String getMateriaID() {
-		return materiaID;
-	}
-
-	public void setMateriaID(String materiaID) {
-		this.materiaID = materiaID;
 	}
 
 	@Override
