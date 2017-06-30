@@ -1,5 +1,7 @@
 package edu.wol.dom.services;
 
+import java.io.IOException;
+
 import edu.wol.dom.User;
 import edu.wol.dom.WorldContainer;
 import edu.wol.dom.commands.Command;
@@ -10,7 +12,7 @@ public interface UserInterface<W extends WorldContainer<?, ?>> {
 	public W loadWol(long ID);
 	public void moveUser(User user,Position pos);
 	public void rotateUser(User user,Position newHorizon);
-	public void executeUserCommand(User user,Command com);
+	public void executeUserCommand(User user,Command com) throws IOException, Exception;
 	public void addUserListner(User user,UserEventListener listener);
 	public void removeUserListner(User user,UserEventListener listener);
 }
