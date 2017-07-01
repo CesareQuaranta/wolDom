@@ -14,7 +14,7 @@ import edu.wol.dom.space.Vector;
 @Entity
 public class AsteroidShape extends Shape {
 	
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	protected List<Vector> vertices;
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	protected List<Triangle> faces;
