@@ -19,6 +19,15 @@ import edu.wol.dom.space.iCoordinate;
  */
 @Entity
 public abstract class WorldContainer<E extends WolEntity,C extends iCoordinate> extends MassEntity implements iEventObserver<E>,Runnable  {
+	
+	protected String nodeID;//Node identifier
+	public String getNodeID() {
+		return nodeID;
+	}
+	public void setNodeID(String nodeID) {
+		this.nodeID = nodeID;
+	}
+	
 	@Transient
 	protected Collection<iEventObserver<E>> observers=new ArrayList<iEventObserver<E>>();
 	public abstract void init(float spacePrecision, float timePrecision);
@@ -27,4 +36,5 @@ public abstract class WorldContainer<E extends WolEntity,C extends iCoordinate> 
 	public abstract void addEventObserver(iEventObserver<E> observer);
 	public abstract Space<E,C> getSpace();
 	public abstract boolean isEmpty();
+	
 }

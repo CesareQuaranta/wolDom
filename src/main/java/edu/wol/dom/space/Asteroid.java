@@ -24,7 +24,7 @@ public class Asteroid extends Planetoid {
 
     //@OneToOne(fetch=FetchType.LAZY, targetEntity=AsteroidShape.class)
 	//@JoinColumn(name="SHAPE_ID")
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private AsteroidShape persistenceShape;
 	
 	protected Asteroid(){
