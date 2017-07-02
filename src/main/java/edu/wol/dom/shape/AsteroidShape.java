@@ -18,6 +18,8 @@ public class AsteroidShape extends Shape {
 	protected List<Vector> vertices;
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	protected List<Triangle> faces;
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	protected List<Vector> normals;
 	
 	public AsteroidShape(){
 		vertices=new ArrayList<Vector>();
