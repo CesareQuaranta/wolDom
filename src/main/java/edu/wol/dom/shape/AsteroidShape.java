@@ -9,8 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 
-import org.hibernate.annotations.IndexColumn;
-
 import edu.wol.dom.space.Position;
 import edu.wol.dom.space.Vector;
 
