@@ -1,5 +1,6 @@
 package edu.wol.dom.space;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,8 +24,11 @@ public class Vector implements Comparable<Vector>,iCoordinate,Cloneable{
 	@Id
 	@GeneratedValue
 	private long ID;
+	@Column(precision=16, scale=2)
 	protected float x;
+	@Column(precision=16, scale=2)
 	protected float y;
+	@Column(precision=16, scale=2)
 	protected float z;
 
     public Vector(){
