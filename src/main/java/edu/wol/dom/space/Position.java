@@ -118,9 +118,17 @@ public class Position implements Comparable<Position>,iCoordinate {
 		}else 
 			return new Float(getLenght()).compareTo(comp.getLenght());
 	}
+	public static Position  parse(String serializedPosition) {
+		String[] components=serializedPosition.split(":");
+		return new Position(Long.parseLong(components[0]),Long.parseLong(components[1]),Long.parseLong(components[2]));
+	}
 	
 	public String toString(){
 		return "x:"+x+" y:"+y+" z:"+z;
+	}
+	
+	public String serialize(){
+		return String.valueOf(x)+":"+String.valueOf(y)+":"+String.valueOf(z);
 	}
 	
 
