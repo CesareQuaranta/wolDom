@@ -28,7 +28,7 @@ public class AsteroidShapeFactory {
 		//TODO Projections of numFace
 		for(Vector curBasePoint:basePoints){
 			Vector newBasePoint=curBasePoint.clone();
-			newBasePoint.setZ(-10);
+			newBasePoint.setY(-10);
 			s.addVertice(newBasePoint);
 		}
 		for(int i=0;i<numFace;i++){
