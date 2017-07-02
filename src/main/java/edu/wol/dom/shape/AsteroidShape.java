@@ -7,6 +7,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
+
+import org.hibernate.annotations.IndexColumn;
 
 import edu.wol.dom.space.Position;
 import edu.wol.dom.space.Vector;
@@ -15,10 +18,13 @@ import edu.wol.dom.space.Vector;
 public class AsteroidShape extends Shape {
 	
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OrderColumn(name="vertices_seq", nullable=false)
 	protected List<Vector> vertices;
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OrderColumn(name="faces_seq", nullable=false)
 	protected List<Triangle> faces;
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OrderColumn(name="normals_seq", nullable=false)
 	protected List<Vector> normals;
 	
 	public AsteroidShape(){
