@@ -26,6 +26,15 @@ public class AsteroidShapeFactory {
 		}
 		s.addFace(new Triangle(vertices.get(numFace),center,vertices.get(1)));//Last face
 		//TODO Projections of numFace
+		for(Vector curBasePoint:basePoints){
+			Vector newBasePoint=curBasePoint.clone();
+			newBasePoint.setZ(-10);
+			s.addVertice(newBasePoint);
+		}
+		for(int i=0;i<numFace;i++){
+			s.addFace(new Triangle(vertices.get(4+i),vertices.get(4+((1+i)%numFace)),vertices.get(1+i)));
+			s.addFace(new Triangle(vertices.get(4+((1+i)%numFace)),vertices.get(1+((1+i)%numFace)),vertices.get(1+i)));
+		}
 		//TODO Normals
 		return s;
 		
