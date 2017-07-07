@@ -1,7 +1,9 @@
 package edu.wol.dom.shape;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -16,29 +18,11 @@ import edu.wol.dom.space.Vector;
 public class AsteroidShape extends Shape {
 	
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-	@OrderColumn(name="vertices_seq", nullable=false)
-	protected List<Vector> vertices;
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	@OrderColumn(name="faces_seq", nullable=false)
 	protected List<Triangle> faces;
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-	@OrderColumn(name="normals_seq", nullable=false)
-	protected List<Vector> normals;
 	
 	public AsteroidShape(){
-		vertices=new ArrayList<Vector>();
 		faces=new ArrayList<Triangle>();
-	}
-	
-	public void addVertice(Vector v){
-		vertices.add(v);
-	}
-	public void addVertices(List<Vector> v){
-		vertices.addAll(v);
-	}
-	
-	public List<Vector> getVertices() {
-		return vertices;
 	}
 	
 	public void addFace(Triangle f){
@@ -52,6 +36,20 @@ public class AsteroidShape extends Shape {
 		return faces;
 	}
 
+	public List<Vector> getVertices() {
+		Set<Vector> vectorSet=new HashSet<Vector>();
+		for(Triangle curFace:faces){
+			vectorSet.add(curFace.getV1());
+			vectorSet.add(curFace.getV2());
+			vectorSet.add(curFace.getV3());
+		}
+		List<Vector> vectors=new ArrayList<Vector>();
+		vectors.addAll(vectorSet);
+		return vectors;
+	}
+	public List<Vector> getNormals() {//TODO
+		return null;
+	}
 	@Override
 	public boolean checkInterseption(Position position, Shape otherShape,
 			Position otherPosition) {
