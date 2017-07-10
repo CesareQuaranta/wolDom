@@ -20,14 +20,24 @@ public class AsteroidShapeFactory {
 		int numFace=3;
 		List<Triangle> pyramidFaces=generatePyramid(numFace+1);
 		List<Triangle> projectionFaces=generateEquilateralProjection(numFace,10);
-		s.addFaces(faceFusion(pyramidFaces,projectionFaces));
+		s.addFaces(faceFusion(pyramidFaces,0,projectionFaces,0));
 		return s;
 		
 	}
-	private List<Triangle> faceFusion(List<Triangle> obj1,List<Triangle> obj2){//TODO Intersect rotate & co
-		List<Triangle> allFaces=new ArrayList<Triangle>(obj1.size()+obj2.size());
-		allFaces.addAll(obj1);
-		allFaces.addAll(obj2);
+	private List<Triangle> faceFusion(List<Triangle> obj1,int fusionIndex1,List<Triangle> obj2,int fusionIndex2){//TODO Intersect rotate & co
+		List<Triangle> allFaces=new ArrayList<Triangle>(obj1.size()+obj2.size()-2);
+		if(fusionIndex1>0){
+			allFaces.addAll(obj1.subList(0, fusionIndex1));
+		}
+		if(fusionIndex1+1<obj1.size()){
+			allFaces.addAll(obj1.subList(fusionIndex1+1, obj1.size()));
+		}
+		if(fusionIndex2>0){
+			allFaces.addAll(obj2.subList(0, fusionIndex2));
+		}
+		if(fusionIndex2+1<obj2.size()){
+			allFaces.addAll(obj2.subList(fusionIndex2+1, obj2.size()));
+		}
 		return allFaces;
 	}
 	/**
