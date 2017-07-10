@@ -109,6 +109,7 @@ public class Vector implements Comparable<Vector>,iCoordinate,Cloneable{
 		return new Vector(x,y,z);
 	}
 
+	@Override
 	public boolean equals(Object comp){
 		if(comp instanceof Vector){
 			return compareTo((Vector)comp)==0;
@@ -117,6 +118,7 @@ public class Vector implements Comparable<Vector>,iCoordinate,Cloneable{
 		}
 		
 	}
+	@Override
 	public int compareTo(Vector comp) {//TODO Migliorare
 		if(x==comp.x && y == comp.y && z == comp.z)
 			return 0;
@@ -136,6 +138,7 @@ public class Vector implements Comparable<Vector>,iCoordinate,Cloneable{
 			}
 		}
 	}
+	@Override
 	public int hashCode(){
 		return Objects.hash(x,y,z);
 	}
