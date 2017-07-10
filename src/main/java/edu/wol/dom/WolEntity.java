@@ -14,6 +14,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
+import edu.wol.dom.space.Planetoid;
+
 /**
  * Created with IntelliJ IDEA.
  * User: cesare
@@ -35,6 +37,15 @@ public abstract class WolEntity implements Serializable {
     public long getID(){
     	return ID;
     }
+    
+    @Override
+	public boolean equals(Object comp){
+		if(comp.getClass() == this.getClass()){
+			return this.ID == ((WolEntity)comp).ID;
+		}else{
+			return false;
+		}
+	}
 
     //void setUID(String UID);
 

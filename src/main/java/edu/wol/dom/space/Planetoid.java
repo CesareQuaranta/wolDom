@@ -5,10 +5,6 @@ import java.util.Collection;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 import edu.wol.dom.phisycs.MassEntity;
@@ -34,9 +30,9 @@ public class Planetoid extends MassEntity implements Comparable<Planetoid>{
     }
 	@Override
 	public int compareTo(Planetoid o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return Double.compare(this.mass, o.mass);
 	}
+
 	public Collection<String> getMateria() {
 		return materia;
 	}
