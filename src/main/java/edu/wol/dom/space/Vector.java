@@ -1,5 +1,7 @@
 package edu.wol.dom.space;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,21 +16,13 @@ import javax.persistence.InheritanceType;
  * Time: 23.49
  * To change this template use File | Settings | File Templates.
  */
-@Entity
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Vector implements Comparable<Vector>,iCoordinate,Cloneable{
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = -5130651281630047189L;
-	@Id
-	@GeneratedValue
-	private long ID;
-	@Column(precision=16, scale=2)
 	protected float x;
-	@Column(precision=16, scale=2)
 	protected float y;
-	@Column(precision=16, scale=2)
 	protected float z;
 
     public Vector(){
@@ -115,11 +109,35 @@ public class Vector implements Comparable<Vector>,iCoordinate,Cloneable{
 		return new Vector(x,y,z);
 	}
 
-	public boolean equals(Vector comp){
-		return compareTo(comp)==0;
+	public boolean equals(Object comp){
+		if(comp instanceof Vector){
+			return compareTo((Vector)comp)==0;
+		}else{
+			return false;
+		}
+		
 	}
-	public int compareTo(Vector comp) {
-		return Float.valueOf(x).compareTo(comp.y)+Float.valueOf(y).compareTo(comp.z)+Float.valueOf(z).compareTo(comp.z);
+	public int compareTo(Vector comp) {//TODO Migliorare
+		if(x==comp.x && y == comp.y && z == comp.z)
+			return 0;
+		else{
+			if(y == comp.y && z == comp.z){
+				return Float.compare(x, comp.x);
+			}else if(x==comp.x && y == comp.y){
+				return Float.compare(z, comp.z);
+			}else if(x==comp.x && z == comp.z){
+				return Float.compare(y, comp.y);
+			}else if(x == comp.x){
+				return Float.compare(y, comp.y);
+			}else if(y == comp.y || z== comp.z){
+				return Float.compare(x, comp.x);	
+			}else{
+				return Float.compare(x, comp.x);
+			}
+		}
+	}
+	public int hashCode(){
+		return Objects.hash(x,y,z);
 	}
 	
 	public boolean isEmpty(){
@@ -127,7 +145,7 @@ public class Vector implements Comparable<Vector>,iCoordinate,Cloneable{
 	}
 	
 	public String toString(){
-		return "v < x:"+x+" y:"+y+" z:"+z+" >";
+		return "v < x:"+String.format("%.2f",x)+" y:"+String.format("%.2f",y)+" z:"+String.format("%.2f",z)+" >";
 	}
 
 }

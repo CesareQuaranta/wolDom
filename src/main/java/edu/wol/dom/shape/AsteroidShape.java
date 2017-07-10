@@ -2,6 +2,7 @@ package edu.wol.dom.shape;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -37,7 +38,7 @@ public class AsteroidShape extends Shape {
 	}
 
 	public List<Vector> getVertices() {
-		Set<Vector> vectorSet=new HashSet<Vector>();
+		Set<Vector> vectorSet=new LinkedHashSet<Vector>();
 		for(Triangle curFace:faces){
 			vectorSet.add(curFace.getV1());
 			vectorSet.add(curFace.getV2());

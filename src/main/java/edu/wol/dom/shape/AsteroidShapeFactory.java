@@ -60,7 +60,7 @@ public class AsteroidShapeFactory {
 	private List<Triangle> generateEquilateralProjection(int numFace,int length){
 		List<Triangle> faces=new ArrayList<Triangle>(numFace+2);
 		List<Vector> basePoints=generateEquilateralBase(numFace);
-		List<Vector> basePoints2=generateEquilateralBase(numFace);
+		List<Vector> basePoints2=new ArrayList<Vector>(numFace);
 		
 		for(int i=0;i<numFace-2;i++){//Base faces
 			faces.add(new Triangle(basePoints.get(i),basePoints.get(i+1),basePoints.get(i+2)));
