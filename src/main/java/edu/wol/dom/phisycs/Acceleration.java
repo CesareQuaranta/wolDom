@@ -3,7 +3,7 @@ package edu.wol.dom.phisycs;
 import javax.persistence.Entity;
 
 import edu.wol.dom.Power;
-import edu.wol.dom.space.Vector;
+import edu.wol.dom.space.Vector3f;
 
 @Entity
 public class Acceleration extends Velocity  {
@@ -16,10 +16,10 @@ public class Acceleration extends Velocity  {
 		super(1,x,y,z);
 	}
 
-	public Acceleration(Vector vector) {
+	public Acceleration(Vector3f vector) {
 		this(1, vector);
 	}
-	public Acceleration(float time, Vector vector) {
+	public Acceleration(float time, Vector3f vector) {
 		super(time, vector);
 	}
 	
@@ -42,6 +42,8 @@ public class Acceleration extends Velocity  {
 	}
 
 	public Acceleration sum(Acceleration acceleration, double d) {
-		return new Acceleration(this.time,this.vector.sum(acceleration.vector,d));
+		Vector3f vA=this.vector.clone();
+		vA.scaleAdd((float)d,acceleration.vector);
+		return new Acceleration(this.time,vA);
 	}
 }

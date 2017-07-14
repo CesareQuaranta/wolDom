@@ -9,6 +9,7 @@ import edu.wol.dom.WolEntity;
 import edu.wol.dom.WorldContainer;
 import edu.wol.dom.commands.Command;
 import edu.wol.dom.space.Position;
+import edu.wol.dom.space.Vector3f;
 
 public interface UserInterface<W extends WorldContainer<E, Position>,E extends WolEntity> {
 	public User loadUser(String username) throws IOException, Exception;

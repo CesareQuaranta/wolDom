@@ -3,38 +3,38 @@ package edu.wol.dom.phisycs;
 import javax.persistence.Entity;
 
 import edu.wol.dom.Action;
-import edu.wol.dom.space.Vector;
+import edu.wol.dom.space.Vector3f;
 @Entity
 public class Velocity extends Action{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -8543988811101335479L;
-	protected Vector vector;
+	protected Vector3f vector;
 	protected float time;
 	
 	private Velocity() {
 		super();
 		time=0;
-		this.vector = new Vector();
+		this.vector = new Vector3f();
 	}
 	public Velocity(float time) {
 		super();
 		this.time=time;
-		this.vector = new Vector();
+		this.vector = new Vector3f();
 	}
 	
-	public Velocity(Vector vector) {
+	public Velocity(Vector3f vector) {
 		this(1,vector);
 	}
 	
-	public Velocity(float time,Vector vector) {
+	public Velocity(float time,Vector3f vector) {
 		this.time=time;
 		this.vector=vector;
 	}
 	
 	public Velocity(float time,float x,float y,float z) {
-		this.vector = new Vector(x,y,z);
+		this.vector = new Vector3f(x,y,z);
 		this.time=time;
 	}
 	protected void copy(Velocity source){
@@ -47,7 +47,7 @@ public class Velocity extends Action{
 		return time;
 	}
 	
-	public Vector getVector() {
+	public Vector3f getVector() {
 		return vector;
 	}
 	
@@ -66,7 +66,9 @@ public class Velocity extends Action{
 	public Velocity getMaximized4Time(){
 		
 		if(time>0 && time<1){
-			Velocity maximized=new Velocity(1/time,this.vector.div(time));
+			Vector3f v=this.vector.clone();
+			v.scale(time);
+			Velocity maximized=new Velocity(1/time,v);
 			return maximized;
 		}
 		return clone();
@@ -78,13 +80,14 @@ public class Velocity extends Action{
 			Velocity result=getMaximized4Time();;
 			Velocity resultAddend=addend.getMaximized4Time();
 			result.time*=resultAddend.time;
-			return new Velocity(result.time,result.vector.sum(addend.vector));
+			result.vector.add(addend.vector);
+			return result;
 		}else 
 			return new Velocity();
 	}
 	
 	public float getIntensity(){
-		return(time*this.vector.getLenght());
+		return(time*this.vector.length());
 	}
 	
 	public Velocity clone(){

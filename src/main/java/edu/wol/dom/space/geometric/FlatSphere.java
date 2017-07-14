@@ -9,7 +9,7 @@ import edu.wol.dom.iEventObserver;
 import edu.wol.dom.phisycs.Force;
 import edu.wol.dom.phisycs.ForceFactory;
 import edu.wol.dom.space.Movement;
-import edu.wol.dom.space.Vector;
+import edu.wol.dom.space.Vector3f;
 import edu.wol.dom.space.Space;
 
 /**
@@ -21,7 +21,7 @@ import edu.wol.dom.space.Space;
  * Only an Object at time can have e slot.
  * Moving out the limit cause return to the specular opposit place.
  */
-public class FlatSphere extends Space<WolEntity,Vector>{
+public class FlatSphere extends Space<WolEntity,Vector3f>{
    /* protected List<List<C>> matrix;
     protected Integer radius;
     protected Integer maxY;
@@ -114,12 +114,12 @@ while ( ++sx < ex ) {
     }           */
 
 
-    public WolEntity getEntity(Vector position) {
+    public WolEntity getEntity(Vector3f position) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
-    public Vector getPosition(WolEntity tEntity) {
+    public Vector3f getPosition(WolEntity tEntity) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
@@ -138,7 +138,7 @@ while ( ++sx < ex ) {
     }
 
 	@Override
-	public boolean insertEntity(Vector coordinate, WolEntity entity) {
+	public boolean insertEntity(Vector3f coordinate, WolEntity entity) {
 		return false;
 	}
 

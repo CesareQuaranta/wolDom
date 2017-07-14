@@ -7,7 +7,7 @@ import junit.framework.TestSuite;
 import org.junit.Assert;
 
 import edu.wol.dom.space.Position;
-import edu.wol.dom.space.Vector;
+import edu.wol.dom.space.Vector3f;
 
 /**
  * Unit test for simple App.
@@ -35,11 +35,11 @@ public class SpaceTest
 
     @org.junit.Test
 	public void testSumVector() {
-		long px=149597870691L;
-		Position p1=new Position(px,0,0);
-		p1.sum(new Vector(-1.5f,-0.9f,1.001f));
+		float px = 2139095f;
+		Position p1 = new Position(px,0,0);
+		p1.add(new Vector3f(-1.5f,-0.9f,1.001f));
 		Assert.assertTrue("Subtractive test x axis failed",p1.getX()<px);
-		Assert.assertTrue("Subtractive test y axis failed",p1.getY()==-1);
-		Assert.assertTrue("Additive test z axis failed",p1.getZ()==1);
+		Assert.assertTrue("Subtractive test y axis failed",p1.getY()==-0.9f);
+		Assert.assertTrue("Additive test z axis failed",p1.getZ()==1.001f);
 	}
 }

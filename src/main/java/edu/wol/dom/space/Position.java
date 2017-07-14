@@ -9,10 +9,10 @@ import javax.persistence.Id;
  * User: cesare
  * Date: 05/10/11
  * Time: 23.49
- * To change this template use File | Settings | File Templates.
+ * Persistent vector
  */
 @Entity
-public class Position implements Comparable<Position>,iCoordinate {
+public class Position extends Vector3f {
     /**
 	 * 
 	 */
@@ -21,82 +21,33 @@ public class Position implements Comparable<Position>,iCoordinate {
 	@GeneratedValue
 	private long ID;
 	
-	protected long x;
-	private double fx=0d; 
-	protected long y;
-	private double fy=0d; 
-	protected long z;
-	private double fz=0d; 
 	
     public Position(){
-    	this(0L,0L,0L);
+    	super();
     }
-    public Position(long x, long y, long z){
-    	this.x=x;
-    	this.y=y;
-    	this.z=z;
+    public Position(float x, float y, float z){
+    	super(x,y,z);
     }
-    
-	public long getX() {
-        return x;
-    }
-
-    public void setX(long x) {
-        this.x = x;
-    }
-
-    public long getY() {
-        return y;
-    }
-
-    public void setY(long y) {
-        this.y = y;
-    }
-
-    public long getZ() {
-        return z;
-    }
-
-    public void setZ(long z) {
-        this.z = z;
-    }
-
-	public int getDimensions() {
-		return 3;
-	}
 	
-	public double getDistance(Position point){
-		double rValue=0;
-        long distX=x-point.x;
-        long distY=y-point.y;
-        long distZ=z-point.z;
-		double sum=Math.pow(distX, 2)+Math.pow(distY, 2)+Math.pow(distZ, 2);
-		rValue=Math.sqrt(sum);
-		return rValue;
+	public Position(Vector3f v) {
+		super(v);
 	}
-	
-	public BigVector getDistanceVector(Position point){
-        long distX=x-point.x;
-        long distY=y-point.y;
-        long distZ=z-point.z;
+	public BigVector distanceVector(Position point){
+        double distX=x-point.x;
+        double distY=y-point.y;
+        double distZ=z-point.z;
 		return new BigVector(distX,distY,distZ);
 	}
 
-	public float getLenght(){
-		float rValue=0;
-		Double sum=Math.pow(x, 2)+Math.pow(y, 2)+Math.pow(z, 2);
-		rValue=(float)Math.sqrt(sum);
-		return rValue;
-	}
 	public Position clone(){
-		return new Position(x,y,z);
+		return (Position) super.clone();
 	}
-
-	public Vector getDirectionVector(Position point){
+/*
+	public Vector3f getDirectionVector(Position point){
 		BigVector result=getDistanceVector(point);
 		return result.minimize();
 	}
-	public void sum(Vector addend) {
+	public void sum(Vector3f addend) {
 		double xFractionSum=addend.x+fx;
 		fx=xFractionSum-Math.round(xFractionSum);
 		x+=Math.round(xFractionSum);
@@ -117,10 +68,11 @@ public class Position implements Comparable<Position>,iCoordinate {
 			return 0;
 		}else 
 			return new Float(getLenght()).compareTo(comp.getLenght());
-	}
+	}*/
 	public static Position  parse(String serializedPosition) {
 		String[] components=serializedPosition.split(":");
-		return new Position(Long.parseLong(components[0]),Long.parseLong(components[1]),Long.parseLong(components[2]));
+		//return new Position(Long.parseLong(components[0]),Long.parseLong(components[1]),Long.parseLong(components[2]));
+		return new Position(Float.parseFloat(components[0]),Float.parseFloat(components[1]),Float.parseFloat(components[2]));
 	}
 	
 	public String toString(){

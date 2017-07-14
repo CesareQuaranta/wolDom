@@ -9,7 +9,7 @@ import org.junit.Assert;
 import edu.wol.dom.phisycs.Acceleration;
 import edu.wol.dom.phisycs.Force;
 import edu.wol.dom.space.Position;
-import edu.wol.dom.space.Vector;
+import edu.wol.dom.space.Vector3f;
 
 /**
  * Unit test for simple App.
@@ -37,8 +37,8 @@ public class PhysicsTest
 
     @org.junit.Test
 	public void testSumForces() {
-		Force f1=new Force(1D,new Acceleration(new Vector(1,0,0)));
-		Force f2=new Force(1D,new Acceleration(new Vector(-1,0,0)));
+		Force f1=new Force(1D,new Acceleration(new Vector3f(1,0,0)));
+		Force f2=new Force(1D,new Acceleration(new Vector3f(-1,0,0)));
 		f1.sum(f2);
 		Assert.assertTrue("Errore somma forze contrapposte",f1.isEmpty());
 	}

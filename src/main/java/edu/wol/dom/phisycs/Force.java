@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import edu.wol.dom.Power;
-import edu.wol.dom.space.Vector;
+import edu.wol.dom.space.Vector3f;
 
 @Entity
 public class Force extends Power{
@@ -77,7 +77,7 @@ public class Force extends Power{
 
 	@Override
 	public String toString() {
-		return "F "+mass*acceleration.getVector().getLenght()+"N";
+		return "F "+mass*acceleration.getVector().length()+"N";
 	}
 
 }

@@ -8,7 +8,7 @@ import edu.wol.dom.WolEntity;
 import edu.wol.dom.iEventGenerator;
 import edu.wol.dom.iEventObserver;
 import edu.wol.dom.space.Position;
-import edu.wol.dom.space.Vector;
+import edu.wol.dom.space.Vector3f;
 
 /**
  * Created by IntelliJ IDEA.

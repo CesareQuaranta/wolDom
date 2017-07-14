@@ -66,10 +66,10 @@ public class BigVector implements Comparable<BigVector>,iCoordinate,Cloneable{
 		this.z = z;
 	}
 
-	public Vector minimize() {
+	public Vector3f minimize() {
 		Double max=Math.max(Math.abs(x), Math.abs(y));
 		max=Math.max(max, Math.abs(z));
-		return new Vector((float)(x/max),(float)(y/max),(float)(z/max));
+		return new Vector3f((float)(x/max),(float)(y/max),(float)(z/max));
 	}
 
 }

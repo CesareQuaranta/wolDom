@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 
 import edu.wol.dom.space.Position;
-import edu.wol.dom.space.Vector;
+import edu.wol.dom.space.Vector3f;
 
 @Entity
 public class AsteroidShape extends Shape {
@@ -37,18 +37,18 @@ public class AsteroidShape extends Shape {
 		return faces;
 	}
 
-	public List<Vector> getVertices() {
-		Set<Vector> vectorSet=new LinkedHashSet<Vector>();
+	public List<Vector3f> getVertices() {
+		Set<Vector3f> vectorSet=new LinkedHashSet<Vector3f>();
 		for(Triangle curFace:faces){
 			vectorSet.add(curFace.getV1());
 			vectorSet.add(curFace.getV2());
 			vectorSet.add(curFace.getV3());
 		}
-		List<Vector> vectors=new ArrayList<Vector>();
+		List<Vector3f> vectors=new ArrayList<Vector3f>();
 		vectors.addAll(vectorSet);
 		return vectors;
 	}
-	public List<Vector> getNormals() {//TODO
+	public List<Vector3f> getNormals() {//TODO
 		return null;
 	}
 	@Override

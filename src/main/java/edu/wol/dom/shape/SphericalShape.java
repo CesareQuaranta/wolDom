@@ -20,7 +20,7 @@ public class SphericalShape extends Shape {
 		boolean collision=false;
 		if(otherShape instanceof SphericalShape){
 			double minDistance=radius+((SphericalShape)otherShape).radius;
-			collision=collision|position.getDistance(otherPosition)<minDistance;
+			collision=collision|position.distance(otherPosition)<minDistance;
 		}
 		return collision;
 	}

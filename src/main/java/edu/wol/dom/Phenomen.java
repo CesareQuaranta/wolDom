@@ -1,6 +1,7 @@
 package edu.wol.dom;
 
 import edu.wol.dom.space.Position;
+import edu.wol.dom.space.Vector3f;
 
 
 
@@ -13,7 +14,7 @@ import edu.wol.dom.space.Position;
  */
 public class Phenomen<E extends WolEntity> {
 	private E entity;//Who
-	private Position position;//Where
+	private Vector3f position;//Where
 	private Effect<E> effect;//What/When?
 	
 	public E getEntity() {
@@ -22,10 +23,10 @@ public class Phenomen<E extends WolEntity> {
 	public void setEntity(E entity) {
 		this.entity = entity;
 	}
-	public Position getPosition() {
+	public Vector3f getPosition() {
 		return position;
 	}
-	public void setPosition(Position position) {
+	public void setPosition(Vector3f position) {
 		this.position = position;
 	}
 	public Effect<E> getEffect() {

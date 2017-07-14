@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Collection;
 
 import edu.wol.dom.space.Position;
+import edu.wol.dom.space.Vector3f;
 
 public interface  WolContainer<T extends WorldContainer<E,Position>,E extends WolEntity> extends Runnable {
 	public void init() throws Exception;

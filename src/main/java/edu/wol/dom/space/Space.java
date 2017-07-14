@@ -24,17 +24,17 @@ import edu.wol.dom.phisycs.ForceFactory;
  */
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Space<E extends WolEntity,C extends iCoordinate> implements iEventGenerator<E>,iEventObserver<E>,Serializable{
+public abstract class Space<E extends WolEntity,V extends Tuple3f> implements iEventGenerator<E>,iEventObserver<E>,Serializable{
 	@Id
 	@GeneratedValue
 	private long ID;
 	
-	public abstract E getEntity(C position);
+	public abstract E getEntity(V position);
     public abstract Collection<E> getAllEntities();
-    public abstract C getPosition(E entity);//?? necessaria??
+    public abstract V getPosition(E entity);//?? necessaria??
     public abstract boolean process(Movement<E> movement);
     public abstract void addObserver(iEventObserver<E> observer);
-    public abstract boolean insertEntity(C coordinate,E entity);
+    public abstract boolean insertEntity(V coordinate,E entity);
     public abstract void insertForceFactory(ForceFactory f);
     public abstract boolean isEmpty();
     //public Collection<Force> getAllForces(E entity);

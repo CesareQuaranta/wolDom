@@ -16,23 +16,23 @@ import edu.wol.dom.WolEntity;
 @Entity
 public class Movement<E extends WolEntity> extends Effect<E> {
 	private static final long serialVersionUID = -3053579265734463310L;
-	private Vector vector;
+	private Vector3f vector;
 	
 	public Movement(){
     	super(null);
         this.vector=null;
     }
 	
-    public Movement(E entity,Vector vector){
+    public Movement(E entity,Vector3f vector){
     	super(entity);
         this.vector=vector;
     }
     
-	public Vector getVector() {
+	public Vector3f getVector() {
 		return vector;
 	}
 
-	public void setVector(Vector vector) {
+	public void setVector(Vector3f vector) {
 		this.vector = vector;
 	}
 

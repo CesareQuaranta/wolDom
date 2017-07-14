@@ -1,10 +1,10 @@
 package edu.wol.dom.commands;
 
-import edu.wol.dom.space.iCoordinate;
+import edu.wol.dom.space.Position;
 
 public class GravityPower implements Command{
 	private Long magnitudo;
-	private iCoordinate position;
+	private Position position;
 	
 	public Long getMagnitudo() {
 		return magnitudo;
@@ -12,10 +12,10 @@ public class GravityPower implements Command{
 	public void setMagnitudo(Long magnitudo) {
 		this.magnitudo = magnitudo;
 	}
-	public iCoordinate getPosition() {
+	public Position getPosition() {
 		return position;
 	}
-	public void setPosition(iCoordinate position) {
+	public void setPosition(Position position) {
 		this.position = position;
 	}
 
