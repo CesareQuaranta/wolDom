@@ -1,11 +1,7 @@
 package edu.wol.dom.phisycs;
 
-import javax.persistence.Entity;
-
-import edu.wol.dom.Power;
 import edu.wol.dom.space.Vector3f;
 
-@Entity
 public class Acceleration extends Velocity  {
 	private static final long serialVersionUID = -8543988811101335479L;
 	public Acceleration() {

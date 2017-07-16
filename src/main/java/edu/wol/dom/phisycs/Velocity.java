@@ -1,10 +1,7 @@
 package edu.wol.dom.phisycs;
 
-import javax.persistence.Entity;
-
 import edu.wol.dom.Action;
 import edu.wol.dom.space.Vector3f;
-@Entity
 public class Velocity extends Action{
 	/**
 	 * 

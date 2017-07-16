@@ -1,11 +1,10 @@
 package edu.wol.dom.phisycs;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import edu.wol.dom.Power;
-import edu.wol.dom.space.Vector3f;
 
 @Entity
 public class Force extends Power{
@@ -13,11 +12,9 @@ public class Force extends Power{
 	 * 
 	 */
 	private static final long serialVersionUID = -2732542351134968687L;
-	@Id
-	@GeneratedValue
-	private long ID;
 	
 	protected Double mass;
+	@Lob
 	protected Acceleration acceleration;
 	
 	public Force() {
