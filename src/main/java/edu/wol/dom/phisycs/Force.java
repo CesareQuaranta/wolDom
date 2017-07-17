@@ -1,6 +1,5 @@
 package edu.wol.dom.phisycs;
 
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 

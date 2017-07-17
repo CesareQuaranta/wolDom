@@ -1,21 +1,29 @@
 package edu.wol.dom.phisycs;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+
 import edu.wol.dom.Action;
 import edu.wol.dom.space.Vector3f;
+@Entity
 public class Velocity extends Action{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8543988811101335479L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	protected long ID;
+	@Lob
 	protected Vector3f vector;
-	protected float time;
+	protected long time;
 	
 	private Velocity() {
 		super();
 		time=0;
 		this.vector = new Vector3f();
 	}
-	public Velocity(float time) {
+	public Velocity(long time) {
 		super();
 		this.time=time;
 		this.vector = new Vector3f();
@@ -25,12 +33,12 @@ public class Velocity extends Action{
 		this(1,vector);
 	}
 	
-	public Velocity(float time,Vector3f vector) {
+	public Velocity(long time,Vector3f vector) {
 		this.time=time;
 		this.vector=vector;
 	}
 	
-	public Velocity(float time,float x,float y,float z) {
+	public Velocity(long time,float x,float y,float z) {
 		this.vector = new Vector3f(x,y,z);
 		this.time=time;
 	}
@@ -40,7 +48,7 @@ public class Velocity extends Action{
 		
 	}
 
-	public float getTime() {
+	public long getTime() {
 		return time;
 	}
 	
@@ -55,8 +63,8 @@ public class Velocity extends Action{
 		float minX=this.vector.getX()/max;
 		float minY=this.vector.getY()/max;
 		float minZ=this.vector.getZ()/max;
-		float minT=time/max;
-		Velocity minimized=new Velocity(minX,minY,minZ,minT);
+		long minT=Math.round(time/max);
+		Velocity minimized=new Velocity(minT,minX,minY,minZ);
 		return minimized;
 	}
 	
