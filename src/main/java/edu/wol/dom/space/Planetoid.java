@@ -42,4 +42,7 @@ public class Planetoid extends MassEntity implements Comparable<Planetoid>{
 	public void addMateria(String materia) {
 		this.materia.add(materia);
 	}
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
 }
