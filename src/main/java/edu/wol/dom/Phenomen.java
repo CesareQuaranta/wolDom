@@ -1,5 +1,8 @@
 package edu.wol.dom;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import edu.wol.dom.space.Position;
 import edu.wol.dom.space.Vector3f;
 
@@ -15,7 +18,7 @@ import edu.wol.dom.space.Vector3f;
 public class Phenomen<E extends WolEntity> {
 	private E entity;//Who
 	private Vector3f position;//Where
-	private Effect<E> effect;//What/When?
+	private Collection<Effect<E>> effects=new ArrayList<Effect<E>>();//What/When?
 	
 	public E getEntity() {
 		return entity;
@@ -29,10 +32,10 @@ public class Phenomen<E extends WolEntity> {
 	public void setPosition(Vector3f position) {
 		this.position = position;
 	}
-	public Effect<E> getEffect() {
-		return effect;
+	public Collection<Effect<E>> getEffects() {
+		return effects;
 	}
-	public void setEffect(Effect<E> effect) {
-		this.effect = effect;
+	public void addEffect(Effect<E> effect) {
+		this.effects.add(effect);
 	}
 }
