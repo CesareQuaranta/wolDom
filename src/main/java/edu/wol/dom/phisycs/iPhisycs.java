@@ -22,4 +22,6 @@ public interface iPhisycs<E extends WolEntity> extends iEventGenerator<E>,iEvent
     //public Acceleration calcAcceleration(E entity,Collection<Force> forces);
     public void applyForce(E entity,Force force);
     public void removeForce(E entity,Force force);
+    public Velocity getVelocity(E entity);
+    public Velocity getAngularVelocity(E entity);
 }

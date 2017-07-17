@@ -46,6 +46,10 @@ public abstract class WolEntity implements Serializable {
 			return false;
 		}
 	}
+    
+    public boolean isNew(){
+    	return this.ID==0;
+    }
 
     //void setUID(String UID);
 
