@@ -3,6 +3,7 @@ package edu.wol.dom;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 import edu.wol.dom.space.Planetoid;
 
@@ -33,6 +35,10 @@ public abstract class WolEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	protected long ID;
+	
+	@Version
+    @Column(name = "OPTLOCK")
+    private long version = 0L;
 	
     public long getID(){
     	return ID;
