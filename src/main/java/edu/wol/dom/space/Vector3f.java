@@ -307,7 +307,7 @@ public class Vector3f extends Tuple3f implements Comparable<Vector3f>,Serializab
 	
 	@Override
 	public String toString(){
-		return "v < x:"+String.format("%.2f",x)+" y:"+String.format("%.2f",y)+" z:"+String.format("%.2f",z)+" >";
+		return "v < x:"+String.format("%.3f",x)+" y:"+String.format("%.3f",y)+" z:"+String.format("%.3f",z)+" >";
 	}
 
 }
