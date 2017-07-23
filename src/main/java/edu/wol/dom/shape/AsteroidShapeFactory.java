@@ -69,18 +69,18 @@ public class AsteroidShapeFactory {
 		rotateFaces(clone1,center,0,0,angoloZ);//Rotate Z Axis 
 		moveFaces(clone1,0,0,-correctXZ);
 		
-		moveFaces(clone2,0,length1-10,0);//Normalize length
+		moveFaces(clone2,0,length2-10,0);//Normalize length
 		rotateFaces(clone2,center,0,angolo2Y,0);
 		rotateFaces(clone2,center,angoloX,0,0);
 		rotateFaces(clone2,center,0,0,-angoloZ);
 		moveFaces(clone2,0,0,correctXZ);
 		
-		moveFaces(clone3,0,length1-10,0);//Normalize length
+		moveFaces(clone3,0,length3-10,0);//Normalize length
 		rotateFaces(clone3,center,0,angolo3Y,0);
 		rotateFaces(clone3,center,angolo3X,0,0);
 		moveFaces(clone3,-(correctXZ+0.13f),0,0);
 		
-		moveFaces(clone4,0,length1-10,0);//Normalize length
+		moveFaces(clone4,0,length4-10,0);//Normalize length
 		rotateFaces(clone4,center,180,0,0);//Capovolge
 		moveFaces(clone4,-(correctXZ/2),correctY,0);
 		//rotateFaces(clone2,center,-45,0,0);
