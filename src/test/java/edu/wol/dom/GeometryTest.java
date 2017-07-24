@@ -10,6 +10,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import edu.wol.dom.shape.AsteroidShape;
 import edu.wol.dom.shape.AsteroidShapeFactory;
+import edu.wol.dom.shape.PlaneShape;
+import edu.wol.dom.shape.PlanetShapeFactory;
 import edu.wol.dom.space.Vector3f;
 
 public class GeometryTest {
@@ -64,6 +66,12 @@ public class GeometryTest {
 		System.out.println("Max3:"+max3Y.toString());
 		System.out.println("Min:"+minY.toString());
 		
+	}
+	
+	@Test
+	public void testIslandGeneration() throws Exception{
+		PlaneShape shape = PlanetShapeFactory.getInstance().generateIsland(6, 1, 100);
+		System.out.println("Terrain test:"+shape.getVertices().toString());
 	}
 
 }
