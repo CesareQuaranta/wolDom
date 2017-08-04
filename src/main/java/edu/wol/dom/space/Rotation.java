@@ -1,5 +1,8 @@
 package edu.wol.dom.space;
 
+import javax.persistence.Entity;
+import javax.persistence.Lob;
+
 import edu.wol.dom.Effect;
 import edu.wol.dom.WolEntity;
 
@@ -10,9 +13,10 @@ import edu.wol.dom.WolEntity;
  * Time: 0.20
  * Rappresenta rotazione uniforme di n radianti attorno ad un asse dato in una data quantità temporale
  */
-
+@Entity
 public class Rotation<E extends WolEntity> extends Effect<E> {
 	private static final long serialVersionUID = -3053579265734463310L;
+	@Lob
 	private Vector3f axis;
 	private double radians;
 	private long time;
@@ -54,6 +58,9 @@ public class Rotation<E extends WolEntity> extends Effect<E> {
 	}
 	public void setTime(long time) {
 		this.time = time;
+	}
+	public boolean isEmpty() {
+		return this.axis==null;
 	}
 
 }
