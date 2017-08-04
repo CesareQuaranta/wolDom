@@ -19,7 +19,13 @@ public class AsteroidShapeFactory {
 	public AsteroidShape generateHidrogenGemShape(){
 		return generateHidrogenGemShape(10,10,10,10,28,-70.685,200,160,180,68,0.21f,0.35f);
 	}
-	
+	public AsteroidShape generateRandomHidrogenGemShape(){
+		int l1=(int) (1+(Math.random()*9));
+		int l2=(int) (1+(Math.random()*9));
+		int l3=(int) (1+(Math.random()*9));
+		int l4=(int) (1+(Math.random()*9));
+		return generateHidrogenGemShape(l1,l2,l3,l4,28,-70.685,200,160,180,68,0.21f,0.35f);
+	}
 	/*
 	 * Genera una Shape di tipo Gemma di Idrogeno Metallico rappresentata da una struttura geometrica di 4 baraccia, con in cima una piramide a base triangolare, che si intersecano formando una piramide a base triangolare
 	 * TODO:
