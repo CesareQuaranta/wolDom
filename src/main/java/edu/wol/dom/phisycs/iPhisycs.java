@@ -8,6 +8,7 @@ import edu.wol.dom.WolEntity;
 import edu.wol.dom.iEventGenerator;
 import edu.wol.dom.iEventObserver;
 import edu.wol.dom.space.Position;
+import edu.wol.dom.space.Rotation;
 import edu.wol.dom.space.Vector3f;
 
 /**
@@ -23,5 +24,5 @@ public interface iPhisycs<E extends WolEntity> extends iEventGenerator<E>,iEvent
     public void applyForce(E entity,Force force);
     public void removeForce(E entity,Force force);
     public Velocity getVelocity(E entity);
-    public Velocity getAngularVelocity(E entity);
+    public Rotation<E> getAngularVelocity(E entity);
 }

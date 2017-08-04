@@ -1,10 +1,5 @@
 package edu.wol.dom;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.MappedSuperclass;
 
 /**
  * Created with IntelliJ IDEA.
