@@ -8,29 +8,40 @@ import edu.wol.dom.WolEntity;
  * User: cesare
  * Date: 07/10/11
  * Time: 0.20
- * Rappresenta rotazione uniforme in una singola unità temporale
+ * Rappresenta rotazione uniforme di x radianti attorno ad un asse dato in una singola unità temporale
  */
 
 public class Rotation<E extends WolEntity> extends Effect<E> {
 	private static final long serialVersionUID = -3053579265734463310L;
-	private Vector3f vector;
+	private Vector3f axis;
+	private double radians;
 	
 	private Rotation(){
     	super(null);
-        this.vector=null;
+        this.axis=null;
+        this.radians=0;
     }
 	
-    public Rotation(E entity,Vector3f vector){
+    public Rotation(E entity,Vector3f axis,double radians){
     	super(entity);
-        this.vector=vector;
+        this.axis=axis;
+        this.radians=radians;
     }
     
-	public Vector3f getVector() {
-		return vector;
+	public Vector3f getAxis() {
+		return axis;
 	}
 
-	public void setVector(Vector3f vector) {
-		this.vector = vector;
+	public void setAxis(Vector3f axis) {
+		this.axis = axis;
+	}
+
+	public double getRadians() {
+		return radians;
+	}
+
+	public void setRadians(double radians) {
+		this.radians = radians;
 	}
 
 }
