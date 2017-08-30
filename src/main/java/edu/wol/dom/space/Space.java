@@ -22,6 +22,13 @@ import edu.wol.dom.phisycs.ForceFactory;
  * Time: 23.53.19
  * To change this template use File | Settings | File Templates.
  */
+/**
+ * TODO List
+ * L'idea è di trasformare questa classe astratta in una che abbia tutte le funzioni fondamentali e che possa gestire lo spazio non come una matrice
+ * ma come un insieme di funzioni temporali
+ * In particolare lo spazio base dovrebbe gestire la funzione stupida immutabile nel tempo, ed una funzione inerziale dove la posizione e le distanze variano al variare del tempo
+ * Bisogna quindi trasferire qui da Physincs il concetto di velocity index
+ */
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Space<E extends WolEntity,V extends Tuple3f> implements iEventGenerator<E>,iEventObserver<E>,Serializable{
