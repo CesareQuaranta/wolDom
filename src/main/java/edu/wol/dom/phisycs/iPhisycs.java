@@ -2,14 +2,12 @@ package edu.wol.dom.phisycs;
 
 
 import java.io.Serializable;
-import java.util.Collection;
 
 import edu.wol.dom.WolEntity;
 import edu.wol.dom.iEventGenerator;
 import edu.wol.dom.iEventObserver;
 import edu.wol.dom.space.Position;
 import edu.wol.dom.space.Rotation;
-import edu.wol.dom.space.Vector3f;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,6 +18,7 @@ import edu.wol.dom.space.Vector3f;
  */
 public interface iPhisycs<E extends WolEntity> extends iEventGenerator<E>,iEventObserver<E>,Runnable,Serializable{
     public void insert(E entity,Position coordinate);
+    public void castAwayEntities(Position coordinate,long radius);//Cast away all entities in thre radius near the position
     //public Acceleration calcAcceleration(E entity,Collection<Force> forces);
     public void applyForce(E entity,Force force);
     public void removeForce(E entity,Force force);
