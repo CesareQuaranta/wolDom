@@ -18,5 +18,9 @@ public class GravityPower implements Command{
 	public void setPosition(Position position) {
 		this.position = position;
 	}
+	
+	public String toString() {
+		return position.toString() + ", M:" + magnitudo.toString();
+	}
 
 }

@@ -12,4 +12,7 @@ public class Movement implements Command{
 		this.position = position;
 	}
 
+	public String toString() {
+		return position.toString();
+	}
 }
