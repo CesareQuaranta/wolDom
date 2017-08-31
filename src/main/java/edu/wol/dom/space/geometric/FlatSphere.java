@@ -155,19 +155,7 @@ while ( ++sx < ex ) {
 	}
 
 	@Override
-	public boolean process(Movement<WolEntity> movement) {
-		return false;
-		
-	}
-
-	@Override
 	public void addObserver(iEventObserver<WolEntity> observer) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void insertForceFactory(ForceFactory f) {
 		// TODO Auto-generated method stub
 		
 	}
