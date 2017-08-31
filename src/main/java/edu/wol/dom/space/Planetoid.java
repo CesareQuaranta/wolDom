@@ -15,16 +15,13 @@ public class Planetoid extends MassEntity implements Comparable<Planetoid>{
 	 * 
 	 */
 	private static final long serialVersionUID = -3824869428455182143L;
-	protected double radius;
 	
 	@Transient
     protected Shape shape;
     @Basic
     protected ArrayList<String> materia;
     
-	public double getRadius(){
-		return radius;
-	}
+	
     public Shape getShape(){
     	return shape;
     }
@@ -41,8 +38,5 @@ public class Planetoid extends MassEntity implements Comparable<Planetoid>{
 	}
 	public void addMateria(String materia) {
 		this.materia.add(materia);
-	}
-	public void setRadius(double radius) {
-		this.radius = radius;
 	}
 }

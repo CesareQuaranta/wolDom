@@ -40,6 +40,8 @@ public abstract class WolEntity implements Serializable {
     @Column(name = "OPTLOCK")
     private long version = 0L;
 	
+	protected double radius;
+	
     public long getID(){
     	return ID;
     }
@@ -56,6 +58,14 @@ public abstract class WolEntity implements Serializable {
     public boolean isNew(){
     	return this.ID==0;
     }
+    
+    public double getRadius(){
+		return radius;
+	}
+    
+    public void setRadius(double radius) {
+		this.radius = radius;
+	}
 
     //void setUID(String UID);
 
