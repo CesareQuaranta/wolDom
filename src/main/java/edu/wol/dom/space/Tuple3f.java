@@ -293,6 +293,12 @@ public abstract class Tuple3f implements Serializable, Cloneable{
 	this.y *= s;
 	this.z *= s;
     }
+    
+    public void scale(double s) {
+    	this.x *= s;
+    	this.y *= s;
+    	this.z *= s;
+	}
 
 
     /**
