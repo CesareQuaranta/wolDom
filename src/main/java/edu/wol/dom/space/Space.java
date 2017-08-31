@@ -39,10 +39,10 @@ public abstract class Space<E extends WolEntity,V extends Tuple3f> implements iE
 	public abstract E getEntity(V position);
     public abstract Collection<E> getAllEntities();
     public abstract V getPosition(E entity);//?? necessaria??
-    public abstract boolean process(Movement<E> movement);
+    //public abstract boolean process(Movement<E> movement);
     public abstract void addObserver(iEventObserver<E> observer);
     public abstract boolean insertEntity(V coordinate,E entity);
-    public abstract void insertForceFactory(ForceFactory f);
+    //public abstract void insertForceFactory(ForceFactory f);
     public abstract boolean isEmpty();
     //public Collection<Force> getAllForces(E entity);
 }
