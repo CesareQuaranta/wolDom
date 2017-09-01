@@ -36,6 +36,7 @@ public abstract class Space<E extends WolEntity,V extends Tuple3f> implements iE
 	@GeneratedValue
 	private long ID;
 	
+    protected float precision;//Space Precision in fraction of meters
 	public abstract E getEntity(V position);
     public abstract Collection<E> getAllEntities();
     public abstract V getPosition(E entity);//?? necessaria??
