@@ -27,9 +27,9 @@ public class Ichinen<E extends WolEntity> {
 	@GeneratedValue
 	private long ID;
 	
-	private WolEntity entity;
-	private Power power;
-    private Action action;
+	private WolEntity entity;//Entità
+	private Power power;//Potere
+    private Action action;//Azione scatenante
     private InternalCause<WolEntity> internalCause;
     private ExternalCause<WolEntity> externalCause;
     private LatentEffect latentEffect;
