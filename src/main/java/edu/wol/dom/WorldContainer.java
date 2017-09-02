@@ -10,7 +10,6 @@ import edu.wol.dom.phisycs.MassEntity;
 import edu.wol.dom.phisycs.iPhisycs;
 import edu.wol.dom.space.Space;
 import edu.wol.dom.space.Tuple3f;
-import edu.wol.dom.space.iCoordinate;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,24 +19,34 @@ import edu.wol.dom.space.iCoordinate;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-public abstract class WorldContainer<E extends WolEntity,V extends Tuple3f> extends MassEntity implements iEventObserver<E>,Runnable  {
+public abstract class WorldContainer<E extends WolEntity,V extends Tuple3f, S extends Space<E,V>, P extends iPhisycs<E>> extends MassEntity implements iEventObserver<E>,Runnable  {
 	
 	protected String nodeID;//Node identifier
+	protected String wolID;//Wol identifier
+	
+	@Transient
+	protected Collection<iEventObserver<E>> observers=new ArrayList<iEventObserver<E>>();
+	
+
 	public String getNodeID() {
 		return nodeID;
 	}
 	public void setNodeID(String nodeID) {
 		this.nodeID = nodeID;
 	}
+	public String getWolID() {
+		return wolID;
+	}
+	public void setWolID(String wolID) {
+		this.wolID = wolID;
+	}
 	
-	@Transient
-	protected Collection<iEventObserver<E>> observers=new ArrayList<iEventObserver<E>>();
 	public abstract void init(float spacePrecision, float timePrecision);
 	public abstract void insertEntity(V coordinate,E entity);
 	public abstract void processEvent(iEvent event);
 	public abstract void addEventObserver(iEventObserver<E> observer);
-	public abstract Space<E,V> getSpace();
-	public abstract iPhisycs<E> getPhisycs();
+	public abstract S getSpace();
+	public abstract P getPhisycs();
 	public abstract boolean isEmpty();
 	
 }
