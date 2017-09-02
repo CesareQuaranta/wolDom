@@ -200,6 +200,12 @@ public abstract class Tuple3d implements Serializable, Cloneable{
         this.y += t1.y;
         this.z += t1.z;
     }
+    
+    public final void add(Vector3f t1) {
+    	this.x += t1.x;
+        this.y += t1.y;
+        this.z += t1.z;
+	}
 
     /**
      * Sets the value of this tuple to the difference of tuples
@@ -302,6 +308,15 @@ public abstract class Tuple3d implements Serializable, Cloneable{
         this.x = s*this.x + t1.x;
         this.y = s*this.y + t1.y;
         this.z = s*this.z + t1.z;
+    }
+    
+    /**
+     * Radice quadrata
+     */
+    public final void sqrt(){
+    	this.x = Math.sqrt(x);
+    	this.y = Math.sqrt(y);
+    	this.z = Math.sqrt(z);
     }
 
 

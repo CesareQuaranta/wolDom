@@ -15,76 +15,74 @@ import javax.persistence.InheritanceType;
  * User: cesare
  * Date: 05/10/11
  * Time: 23.49
- * A 3-element vector that is represented by single-precision floating point
+ * A 3-element vector that is represented by single-precision doubleing point
  * x,y,z coordinates.  If this value represents a normal, then it should
  * be normalized.
  */
-public class Vector3f extends Tuple3f implements Comparable<Vector3f>,Serializable{
-
-	private static final long serialVersionUID = 5708277775794648551L;
+public class Vector3d extends Tuple3d implements Comparable<Vector3d>,Serializable{
 	
 	/**
-     * Constructs and initializes a Vector3f from the specified xyz coordinates.
+     * Constructs and initializes a Vector3d from the specified xyz coordinates.
      * @param x the x coordinate
      * @param y the y coordinate
      * @param z the z coordinate
      */
-    public Vector3f(float x, float y, float z){
+    public Vector3d(double x, double y, double z){
     	 super(x,y,z);
     }
     
 	
 	 /**
-     * Constructs and initializes a Vector3f from the array of length 3.
+     * Constructs and initializes a Vector3d from the array of length 3.
      * @param v the array of length 3 containing xyz in order
      */
-    public Vector3f(float[] v)
+    public Vector3d(double[] v)
     {
        super(v);
     }
 
 
     /**
-     * Constructs and initializes a Vector3f from the specified Vector3f.
-     * @param v1 the Vector3f containing the initialization x y z data
+     * Constructs and initializes a Vector3d from the specified Vector3d.
+     * @param v1 the Vector3d containing the initialization x y z data
      */
-    public Vector3f(Vector3f v1)
+    public Vector3d(Vector3d v1)
     {
        super(v1);
     }
 
 
     /**
-     * Constructs and initializes a Vector3f from the specified Vector3d.
+     * Constructs and initializes a Vector3d from the specified Vector3d.
      * @param v1 the Vector3d containing the initialization x y z data
      *
-    public Vector3f(Vector3d v1)
+    public Vector3d(Vector3d v1)
     {
        super(v1);
     }*/
 
 
     /**
-     * Constructs and initializes a Vector3f from the specified Tuple3f.
+     * Constructs and initializes a Vector3d from the specified Tuple3f.
      * @param t1 the Tuple3f containing the initialization x y z data
      */
-    public Vector3f(Tuple3f t1) {
+    public Vector3d(Tuple3f t1) {
        super(t1);
     }
 
 
     /**
-     * Constructs and initializes a Vector3f from the specified Tuple3d.
+     * Constructs and initializes a Vector3d from the specified Tuple3d.
      * @param t1 the Tuple3d containing the initialization x y z data
      */
-    public Vector3f(Tuple3d t1) {
+    public Vector3d(Tuple3d t1) {
        super(t1);
     }
     
     /**
-     * Constructs and initializes a Vector3f to (0,0,0).
+     * Constructs and initializes a Vector3d to (0,0,0).
      */
-    public Vector3f()
+    public Vector3d()
     {
         super();
     }
@@ -93,7 +91,7 @@ public class Vector3f extends Tuple3f implements Comparable<Vector3f>,Serializab
      * Returns the squared length of this vector.
      * @return the squared length of this vector
      */
-    public final float lengthSquared()
+    public final double lengthSquared()
     {
         return (this.x*this.x + this.y*this.y + this.z*this.z);
     }
@@ -102,9 +100,9 @@ public class Vector3f extends Tuple3f implements Comparable<Vector3f>,Serializab
      * Returns the length of this vector.
      * @return the length of this vector
      */
-    public final float length()
+    public final double length()
     {
-        return (float)
+        return (double)
              Math.sqrt(this.x*this.x + this.y*this.y + this.z*this.z);
     }
 
@@ -114,9 +112,9 @@ public class Vector3f extends Tuple3f implements Comparable<Vector3f>,Serializab
 	   * @param v1 the other point
 	   * @return  the square of the distance
 	   */
-	  public final float distanceSquared(Vector3f v1)
+	  public final double distanceSquared(Vector3d v1)
 	    {
-	      float dx, dy, dz;
+	      double dx, dy, dz;
 
 	      dx = this.x-v1.x;
 	      dy = this.y-v1.y;
@@ -130,14 +128,14 @@ public class Vector3f extends Tuple3f implements Comparable<Vector3f>,Serializab
 	   * @param v1 the other point
 	   * @return the distance
 	   */
-	  public final float distance(Vector3f v1)
+	  public final double distance(Vector3d v1)
 	    {
-	      float  dx, dy, dz;
+	      double  dx, dy, dz;
 
 	      dx = this.x-v1.x;
 	      dy = this.y-v1.y;
 	      dz = this.z-v1.z;
-	      return (float) Math.sqrt(dx*dx+dy*dy+dz*dz);
+	      return (double) Math.sqrt(dx*dx+dy*dy+dz*dz);
 	    }
 
 
@@ -148,7 +146,7 @@ public class Vector3f extends Tuple3f implements Comparable<Vector3f>,Serializab
 	    * @param v1 the other point
 	    * @return  the L-1 distance
 	    */
-	  public final float distanceL1(Vector3f v1)
+	  public final double distanceL1(Vector3d v1)
 	    {
 	       return( Math.abs(this.x-v1.x) + Math.abs(this.y-v1.y) + Math.abs(this.z-v1.z));
 	    }
@@ -161,9 +159,9 @@ public class Vector3f extends Tuple3f implements Comparable<Vector3f>,Serializab
 	    * @param p1 the other point
 	    * @return  the L-infinite distance
 	    */
-	  public final float distanceLinf(Vector3f v1)
+	  public final double distanceLinf(Vector3d v1)
 	    {
-	       float tmp;
+	       double tmp;
 	       tmp = Math.max( Math.abs(this.x-v1.x), Math.abs(this.y-v1.y));
 	       return(Math.max(tmp,Math.abs(this.z-v1.z)));
 
@@ -172,30 +170,22 @@ public class Vector3f extends Tuple3f implements Comparable<Vector3f>,Serializab
 	  /*
 	   * Multiply in place this vector with multiplier vector return this for convenience
 	   */
-	  public Vector3f multiply(Vector3f multiplier){
+	  public Vector3d multiply(Vector3d multiplier){
 		  	this.x *= multiplier.x;
 		  	this.y *= multiplier.y;
 		  	this.z *= multiplier.z;
 	        return this;
 	    }
 	  
-	  /*
-	   * Division in place this vector with divider vector return this for convenience
-	   */
-	  public Vector3f div(Vector3f divisor){
-		  	this.x /= divisor.x;
-		  	this.y /= divisor.y;
-		  	this.z /= divisor.z;
-	        return this;
-	    }
+	  
   /**
      * Sets this vector to be the vector cross product of vectors v1 and v2.
      * @param v1 the first vector
      * @param v2 the second vector
      */
-    public final void cross(Vector3f v1, Vector3f v2)
+    public final void cross(Vector3d v1, Vector3d v2)
     {
-        float x,y;
+        double x,y;
 
         x = v1.y*v2.z - v1.z*v2.y;
         y = v2.x*v1.z - v2.z*v1.x;
@@ -209,7 +199,7 @@ public class Vector3f extends Tuple3f implements Comparable<Vector3f>,Serializab
      * @param v1 the other vector
      * @return the dot product of this vector and v1
      */
-    public final float dot(Vector3f v1)
+    public final double dot(Vector3d v1)
       {
         return (this.x*v1.x + this.y*v1.y + this.z*v1.z);
       }
@@ -218,11 +208,11 @@ public class Vector3f extends Tuple3f implements Comparable<Vector3f>,Serializab
        * Sets the value of this vector to the normalization of vector v1.
        * @param v1 the un-normalized vector
        */
-      public final void normalize(Vector3f v1)
+      public final void normalize(Vector3d v1)
       {
-          float norm;
+          double norm;
 
-          norm = (float) (1.0/Math.sqrt(v1.x*v1.x + v1.y*v1.y + v1.z*v1.z));
+          norm = (double) (1.0/Math.sqrt(v1.x*v1.x + v1.y*v1.y + v1.z*v1.z));
           this.x = v1.x*norm;
           this.y = v1.y*norm;
           this.z = v1.z*norm;
@@ -233,9 +223,9 @@ public class Vector3f extends Tuple3f implements Comparable<Vector3f>,Serializab
        */
       public final void normalize()
       {
-          float norm;
+          double norm;
 
-          norm = (float)
+          norm = (double)
                  (1.0/Math.sqrt(this.x*this.x + this.y*this.y + this.z*this.z));
           this.x *= norm;
           this.y *= norm;
@@ -249,86 +239,52 @@ public class Vector3f extends Tuple3f implements Comparable<Vector3f>,Serializab
       *   @param v1    the other vector
       *   @return   the angle in radians in the range [0,PI]
       */
-     public final float angle(Vector3f v1)
+     public final double angle(Vector3d v1)
      {
         double vDot = this.dot(v1) / ( this.length()*v1.length() );
         if( vDot < -1.0) vDot = -1.0;
         if( vDot >  1.0) vDot =  1.0;
-        return((float) (Math.acos( vDot )));
+        return((double) (Math.acos( vDot )));
      }
      
 	public void minimize(){
-		float max=Math.max(Math.abs(x), Math.abs(y));
+		double max=Math.max(Math.abs(x), Math.abs(y));
 		max=Math.max(max, Math.abs(z));
 		x=x/max;
 		y=y/max;
 		z=z/max;	
 	}
-	/*Deprecated
-	public Vector3f sum(Vector3f addend){
-		return sum(addend,1);
-	}
-	
-	public Vector3f sum(Vector3f addend,double d){
-		return new Vector3f((float)(this.x+(addend.x*d)),(float)(this.y+(addend.y*d)),(float)(this.z+(addend.z*d)));
-		
-	}
-	public Vector3f multiply(long multiplier){
-		return new Vector3f(x*multiplier,y*multiplier,z*multiplier);
-	}
-    
-    
-    public Vector3f div(float divisor){
-        return new Vector3f(x/divisor,y/divisor,z/divisor);
-    }
-*/
 	
 	@Override
-	public int compareTo(Vector3f comp) {//TODO Migliorare
+	public int compareTo(Vector3d comp) {//TODO Migliorare
 		if(x==comp.x && y == comp.y && z == comp.z)
 			return 0;
 		else{
 			if(y == comp.y && z == comp.z){
-				return Float.compare(x, comp.x);
+				return Double.compare(x, comp.x);
 			}else if(x==comp.x && y == comp.y){
-				return Float.compare(z, comp.z);
+				return Double.compare(z, comp.z);
 			}else if(x==comp.x && z == comp.z){
-				return Float.compare(y, comp.y);
+				return Double.compare(y, comp.y);
 			}else if(x == comp.x){
-				return Float.compare(y, comp.y);
+				return Double.compare(y, comp.y);
 			}else if(y == comp.y || z== comp.z){
-				return Float.compare(x, comp.x);	
+				return Double.compare(x, comp.x);	
 			}else{
-				return Float.compare(x, comp.x);
+				return Double.compare(x, comp.x);
 			}
 		}
 	}
-	/*
-	@Override
-	public int hashCode(){
-		return Objects.hash(x,y,z);
-	}
-	@Override
-	public boolean equals(Object comp){
-		if(comp instanceof Vector3f){
-			return compareTo((Vector3f)comp)==0;
-		}else{
-			return false;
-		}
-		
-	}
-	*/
+
 	@Override 
-	public Vector3f clone(){
-		return (Vector3f) super.clone();
+	public Vector3d clone(){
+		return (Vector3d) super.clone();
 	}
 	
 	@Override
 	public String toString(){
-		return "v < x:"+String.format("%.3f",x)+" y:"+String.format("%.3f",y)+" z:"+String.format("%.3f",z)+" >";
+		return "v < x:"+String.format("%.3d",x)+" y:"+String.format("%.3d",y)+" z:"+String.format("%.3d",z)+" >";
 	}
-
-
 	
 
 }

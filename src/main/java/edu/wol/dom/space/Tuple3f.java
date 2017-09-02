@@ -329,6 +329,14 @@ public abstract class Tuple3f implements Serializable, Cloneable{
         this.y = s*this.y + t1.y;
         this.z = s*this.z + t1.z;
     }
+    /**
+     * Radice quadrata
+     */
+    public final void sqrt(){
+    	this.x = (float) Math.sqrt(x);
+    	this.y = (float) Math.sqrt(y);
+    	this.z = (float) Math.sqrt(z);
+    }
 
 
    /**
