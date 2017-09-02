@@ -23,6 +23,11 @@ import edu.wol.dom.phisycs.ForceFactory;
  * To change this template use File | Settings | File Templates.
  */
 /**
+ * Obbiettivi della classe sono:
+ * 1) Collezionare le coordinate delle entity inserite
+ * 2) Determinare la loro posiziopne nell'istante di tempo attuale
+ * 3) Determinare l'istante di tempo di collisione di due entità
+ * 
  * TODO List
  * L'idea è di trasformare questa classe astratta in una che abbia tutte le funzioni fondamentali e che possa gestire lo spazio non come una matrice
  * ma come un insieme di funzioni temporali
